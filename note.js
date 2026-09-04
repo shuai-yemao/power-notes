@@ -37,13 +37,22 @@ function renderLink(label, url) {
     return escapeHtml(label);
   }
 }
-function inlineMarkdown(value) {
+function renderMathPlaceholder(expression, mathExpressions, display = false) {
+  const source = String(expression ?? '').trim();
+  const id = `math-${display ? 'display' : 'inline'}-${mathExpressions.length}`;
+  mathExpressions.push({ id, source, display });
+  if (!display) return `<span class="math-inline" id="${id}" role="math" aria-label="LaTeX 公式">${escapeHtml(source)}</span>`;
+  return `<div class="math-display" id="${id}" role="math" aria-label="LaTeX 公式"><div class="math-loading">正在加载 LaTeX 公式…</div></div>`;
+}
+let activeMathExpressions = [];
+function inlineMarkdown(value, mathExpressions = activeMathExpressions) {
   const tokens = [];
   const token = (html) => { const id = `@@POWER_TOKEN_${tokens.length}@@`; tokens.push(html); return id; };
   let source = String(value ?? '').replace(/!\[([^\]]*)\]\(\s*(\S+?)(?:\s+["']([^"']*)["'])?\s*\)/g, (_, alt, url, title) => token(renderImage(alt, url, title)));
   source = source.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => token(renderLink(label, url)));
+  source = source.replace(/`([^`]+)`/g, (_, code) => token(`<code>${escapeHtml(code)}</code>`));
+  source = source.replace(/\\\(([\s\S]+?)\\\)|(?<!\$)\$(?!\$)([^$\n]+?)(?<!\$)\$(?!\$)/g, (_, paren, dollar) => token(renderMathPlaceholder(paren ?? dollar, mathExpressions)));
   return escapeHtml(source)
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/@@POWER_TOKEN_(\d+)@@/g, (_, index) => tokens[Number(index)]);
 }
@@ -66,13 +75,29 @@ function highlightCCode(source) {
   }
   return output + escapeHtml(source.slice(lastIndex));
 }
+function highlightJson(source) {
+  const pattern = /(\/\*[\s\S]*?\*\/|\/\/[^\n]*|"(?:\\.|[^"\\])*"|-?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?|\b(?:true|false|null)\b)/g;
+  let output = ''; let lastIndex = 0; let match;
+  while ((match = pattern.exec(source))) {
+    output += escapeHtml(source.slice(lastIndex, match.index));
+    const value = match[0];
+    let className = 'code-token';
+    if (value.startsWith('//') || value.startsWith('/*')) className += ' code-comment';
+    else if (value.startsWith('"')) className += /^\s*:/.test(source.slice(match.index + value.length)) ? ' code-property' : ' code-string';
+    else if (/^-?\d|^\.\d/.test(value)) className += ' code-number';
+    else className += ' code-literal';
+    output += `<span class="${className}">${escapeHtml(value)}</span>`;
+    lastIndex = match.index + value.length;
+  }
+  return output + escapeHtml(source.slice(lastIndex));
+}
 function codeLanguageLabel(language) {
-  const labels = { c: 'C', h: 'C Header', cpp: 'C++', 'c++': 'C++', cc: 'C++', cxx: 'C++', hpp: 'C++ Header', mermaid: 'Mermaid', echarts: 'ECharts', echart: 'ECharts', chart: 'ECharts' };
+  const labels = { c: 'C', h: 'C Header', cpp: 'C++', 'c++': 'C++', cc: 'C++', cxx: 'C++', hpp: 'C++ Header', json: 'JSON', jsonc: 'JSONC', mermaid: 'Mermaid', echarts: 'ECharts', echart: 'ECharts', chart: 'ECharts' };
   return labels[language] || (language === 'text' ? 'TEXT' : language.toUpperCase());
 }
 function renderCode(source, language) {
   const normalized = (language || 'text').toLowerCase();
-  const code = ['c', 'h', 'cpp', 'c++', 'cc', 'cxx', 'hpp'].includes(normalized) ? highlightCCode(source) : escapeHtml(source);
+  const code = ['c', 'h', 'cpp', 'c++', 'cc', 'cxx', 'hpp'].includes(normalized) ? highlightCCode(source) : ['json', 'jsonc'].includes(normalized) ? highlightJson(source) : escapeHtml(source);
   return `<div class="code-block"><div class="code-meta"><span>${escapeHtml(codeLanguageLabel(normalized))}</span><span>CODE</span></div><pre><code class="language-${escapeAttribute(normalized)}">${code}</code></pre></div>`;
 }
 function noteCategoryLabels(note) { return Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath) : [note.categoryLabel]; }
@@ -92,9 +117,13 @@ function renderMarkdown(markdown) {
   const headings = [];
   const diagrams = [];
   const charts = [];
+  const math = [];
+  activeMathExpressions = math;
   let inCode = false; let codeLines = []; let listItems = [];
   let codeLanguage = 'text';
+  let inMath = false; let mathLines = []; let mathDelimiter = '';
   const flushList = () => { if (listItems.length) { output.push(`<ul>${listItems.join('')}</ul>`); listItems = []; } };
+  const flushMath = () => { if (!inMath) return; output.push(renderMathPlaceholder(mathLines.join('\n'), math, true)); mathLines = []; mathDelimiter = ''; inMath = false; };
   const flushCode = () => {
     if (!inCode) return;
     const source = codeLines.join('\n');
@@ -115,6 +144,11 @@ function renderMarkdown(markdown) {
   lines.forEach((line) => {
     if (line.startsWith('```')) { flushList(); if (inCode) flushCode(); else { inCode = true; codeLanguage = line.slice(3).trim().toLowerCase() || 'text'; } return; }
     if (inCode) { codeLines.push(line); return; }
+    const trimmed = line.trim();
+    if (inMath) { if (trimmed === mathDelimiter) flushMath(); else mathLines.push(line); return; }
+    if (trimmed === '$$' || trimmed === '\\[') { flushList(); inMath = true; mathDelimiter = trimmed === '$$' ? '$$' : '\\]'; mathLines = []; return; }
+    const singleMath = trimmed.match(/^\$\$([\s\S]+)\$\$$/) || trimmed.match(/^\\\[([\s\S]+)\\\]$/);
+    if (singleMath) { flushList(); output.push(renderMathPlaceholder(singleMath[1], math, true)); return; }
     const imageMatch = line.match(/^\s*!\[([^\]]*)\]\(\s*(\S+?)(?:\s+["']([^"']*)["'])?\s*\)\s*$/);
     if (imageMatch) { flushList(); output.push(renderImage(imageMatch[1], imageMatch[2], imageMatch[3], true)); return; }
     if (/^#{1,3} /.test(line)) { flushList(); const level = line.match(/^#+/)[0].length; const text = line.replace(/^#+ /,''); const id = `section-${headings.length}`; headings.push({ id, text, level }); output.push(`<h${level} id="${id}">${inlineMarkdown(text)}</h${level}>`); return; }
@@ -123,9 +157,10 @@ function renderMarkdown(markdown) {
     if (!line.trim()) { flushList(); return; }
     flushList(); output.push(`<p>${inlineMarkdown(line)}</p>`);
   });
-  flushList(); flushCode();
+  flushList(); flushCode(); flushMath();
+  activeMathExpressions = [];
   noteToc.innerHTML = headings.filter((item) => item.level > 1).map((item) => `<a class="note-outline-link level-${item.level}" href="#${item.id}">${escapeHtml(item.text)}</a>`).join('');
-  return { html: output.join(''), diagrams, charts };
+  return { html: output.join(''), diagrams, charts, math };
 }
 
 function showRenderError(node, label, source) {
@@ -153,6 +188,41 @@ function loadScript(source, globalName) {
     script.src = source; script.async = true; script.fetchPriority = 'low'; script.dataset.powerLoader = globalName;
     script.onload = () => resolve(window[globalName]); script.onerror = reject; document.head.appendChild(script);
   });
+}
+function loadStylesheet(source, key) {
+  const existing = document.querySelector('link[data-power-style="' + key + '"]');
+  if (existing) return Promise.resolve(existing);
+  return new Promise((resolve, reject) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet'; link.href = source; link.dataset.powerStyle = key;
+    link.onload = () => resolve(link); link.onerror = reject; document.head.appendChild(link);
+  });
+}
+function showMathError(node, source, display) {
+  node.classList.add('is-fallback');
+  node.textContent = source;
+  node.title = 'LaTeX 公式暂时无法渲染';
+  if (display) node.setAttribute('aria-label', 'LaTeX 公式源码：' + source);
+}
+async function renderLatex(mathExpressions) {
+  if (!mathExpressions.length) return;
+  try {
+    const module = await import('https://cdn.jsdelivr.net/npm/katex@0.18.5/dist/katex.mjs');
+    const katex = module.default || module;
+    loadStylesheet('https://cdn.jsdelivr.net/npm/katex@0.18.5/dist/katex.min.css', 'katex').catch(() => {});
+    mathExpressions.forEach(({ id, source, display }) => {
+      const node = document.getElementById(id);
+      if (!node) return;
+      try {
+        katex.render(source, node, { displayMode: display, throwOnError: false, trust: false, output: 'htmlAndMathml' });
+        node.setAttribute('aria-label', 'LaTeX 公式：' + source);
+      } catch (_) {
+        showMathError(node, source, display);
+      }
+    });
+  } catch (_) {
+    mathExpressions.forEach(({ id, source, display }) => { const node = document.getElementById(id); if (node) showMathError(node, source, display); });
+  }
 }
 function applyChartTheme(chart, option) {
   const dark = document.body.classList.contains('dark');
@@ -199,6 +269,7 @@ async function renderEcharts(charts) {
 function enhanceMarkdown(renderResult) {
   renderMermaidDiagrams(renderResult.diagrams);
   renderEcharts(renderResult.charts);
+  renderLatex(renderResult.math);
 }
 
 renderLibraryNav();

@@ -39,6 +39,21 @@ flowchart LR
 ```c
 int main(void) { return 0; }
 ```
+
+```json
+{
+  "name": "Power Notes",
+  "enabled": true
+}
+```
+
+行内公式支持 `$E = mc^2$` 或 `\(E = mc^2\)`；独占一行的块级公式支持：
+
+```markdown
+$$
+\int_0^1 x^2\,dx = \frac{1}{3}
+$$
+```
 ````
 
 独占一行的图片使用标准 Markdown 图片语法：
@@ -47,4 +62,4 @@ int main(void) { return 0; }
 ![图片说明](../assets/example.svg "可选图注")
 ```
 
-Mermaid 和 ECharts 只在当前笔记确实包含对应代码块时按需加载；外部图表库加载失败时会保留源代码，避免笔记内容消失。
+Mermaid、ECharts 和 KaTeX 只在当前笔记确实包含对应内容时按需加载；外部渲染库加载失败时会保留 Mermaid、ECharts 或 LaTeX 源码，避免笔记内容消失。JSON 代码块支持 `json` 和 `jsonc` 语言标记。
