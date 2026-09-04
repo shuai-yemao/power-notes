@@ -12,10 +12,13 @@ const directoryMarkdownIndex = new Map();
 const expandedPaths = new Set();
 
 function escapeHtml(value) { return String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char])); }
+function escapeAttribute(value) { return escapeHtml(value); }
 function pathIds(path) { return Array.isArray(path) ? path : String(path || '').split('/').filter(Boolean); }
 function pathKey(path) { return pathIds(path).join('/'); }
 function isPathPrefix(ancestor, path) { const a = pathIds(ancestor); const b = pathIds(path); return a.length <= b.length && a.every((id, index) => id === b[index]); }
 function selectedRoot() { return directoryPath === 'all' ? 'all' : pathIds(directoryPath)[0]; }
+function currentDirectoryHref() { const page = location.pathname.split('/').pop() || 'library.html'; return `${page}${location.search}${location.hash}`; }
+function noteHref(note) { return `note.html?slug=${encodeURIComponent(note.slug)}&from=${encodeURIComponent(currentDirectoryHref())}`; }
 
 function normalizeDirectoryState() {
   if (directoryPath === 'all') { directoryFilter = 'all'; return; }
@@ -81,7 +84,7 @@ function renderDirectory() {
     const haystack = `${note.title} ${note.categoryLabel} ${labels} ${note.summary} ${directoryMarkdownIndex.get(note.slug) || ''}`.toLowerCase();
     return noteMatchesDirectory(note) && (!query || haystack.includes(query));
   });
-  directoryList.innerHTML = notes.map((note) => { const labels = Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath) : [note.categoryLabel]; return `<a class="directory-row" href="note.html?slug=${encodeURIComponent(note.slug)}"><span class="directory-index">${escapeHtml(note.number)}<small>${escapeHtml(note.categoryLabel)}</small></span><span class="directory-main"><strong>${escapeHtml(note.title)}</strong><small>${escapeHtml(note.summary)}</small><small class="directory-path">${labels.map(escapeHtml).join(' / ')}</small></span><span class="directory-date">${escapeHtml(note.date)}<br><small>${escapeHtml(note.readTime)}</small></span><span class="note-arrow">↗</span></a>`; }).join('');
+  directoryList.innerHTML = notes.map((note) => { const labels = Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath) : [note.categoryLabel]; return `<a class="directory-row" href="${escapeAttribute(noteHref(note))}"><span class="directory-index">${escapeHtml(note.number)}<small>${escapeHtml(note.categoryLabel)}</small></span><span class="directory-main"><strong>${escapeHtml(note.title)}</strong><small>${escapeHtml(note.summary)}</small><small class="directory-path">${labels.map(escapeHtml).join(' / ')}</small></span><span class="directory-date">${escapeHtml(note.date)}<br><small>${escapeHtml(note.readTime)}</small></span><span class="note-arrow">↗</span></a>`; }).join('');
   directoryCount.textContent = query ? `${notes.length} 条匹配笔记` : `${notes.length} 条笔记`;
   directoryEmpty.hidden = notes.length > 0;
   directoryTabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.filter === directoryFilter));

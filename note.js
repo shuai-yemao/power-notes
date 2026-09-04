@@ -5,6 +5,17 @@ const noteLibraryCount = document.querySelector('#noteLibraryCount');
 const noteCrumb = document.querySelector('#noteCrumb');
 const slug = new URLSearchParams(location.search).get('slug') || window.POWER_NOTES[0].slug;
 const currentNote = window.POWER_NOTES.find((note) => note.slug === slug) || window.POWER_NOTES[0];
+const returnTarget = (() => {
+  const value = new URLSearchParams(location.search).get('from');
+  if (!value) return null;
+  try {
+    const target = new URL(value, location.href);
+    if (!target.pathname.endsWith('/library.html')) return null;
+    return `${target.pathname.split('/').pop()}${target.search}${target.hash}`;
+  } catch (_) {
+    return null;
+  }
+})();
 
 function escapeHtml(value) { return String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char])); }
 function escapeAttribute(value) { return escapeHtml(value); }
@@ -49,7 +60,7 @@ function renderWikiLink(reference, label) {
     return title === normalizedTarget || title === targetName.toLowerCase() || file === normalizedTarget || file.endsWith('/' + normalizedTarget);
   });
   if (!match) return `<span class="markdown-wiki-unresolved" title="Obsidian 链接目标未导入">${escapeHtml(display)}</span>`;
-  return `<a class="markdown-wiki-link" href="note.html?slug=${encodeURIComponent(match.slug)}">${escapeHtml(display)}</a>`;
+  return `<a class="markdown-wiki-link" href="${escapeAttribute(noteHref(match))}">${escapeHtml(display)}</a>`;
 }
 function renderWikiImage(inner) {
   const parts = String(inner).split('|');
@@ -59,6 +70,19 @@ function renderWikiImage(inner) {
 }
 function pathBasename(value) { return String(value || '').replaceAll('\\', '/').split('/').pop() || 'Obsidian 图片'; }
 function cleanNoteSummary(value) { return String(value ?? '').replace(/^\s*>?\s*\[![A-Za-z0-9_-]+\]\s*/i, '').trim(); }
+function noteDirectoryKey(note) { return Array.isArray(note.categoryPath) ? note.categoryPath.join('/') : note.category; }
+function sameDirectoryNotes() { const directory = noteDirectoryKey(currentNote); return window.POWER_NOTES.filter((note) => noteDirectoryKey(note) === directory); }
+function fallbackDirectoryHref() { return `library.html?category=${encodeURIComponent(currentNote.category)}&path=${encodeURIComponent(currentNote.category)}`; }
+function returnDirectoryHref() { return returnTarget || fallbackDirectoryHref(); }
+function noteHref(note) { const params = new URLSearchParams({ slug: note.slug }); if (returnTarget) params.set('from', returnTarget); return `note.html?${params.toString()}`; }
+function renderArticleEnd() {
+  const notes = sameDirectoryNotes();
+  const currentIndex = notes.findIndex((note) => note.slug === currentNote.slug);
+  const previous = currentIndex > 0 ? notes[currentIndex - 1] : null;
+  const next = currentIndex >= 0 && currentIndex < notes.length - 1 ? notes[currentIndex + 1] : null;
+  const renderSibling = (note, label, direction) => note ? `<a class="article-sibling article-sibling-${direction}" href="${escapeAttribute(noteHref(note))}"><span>${label}</span><strong>${escapeHtml(note.title)}</strong></a>` : `<span class="article-sibling article-sibling-${direction} is-disabled"><span>${label}</span><strong>没有更多笔记</strong></span>`;
+  return `<div class="article-end"><div class="article-sibling-row">${renderSibling(previous, '上一篇', 'previous')}${renderSibling(next, '下一篇', 'next')}</div><a class="article-end-return" href="${escapeAttribute(returnDirectoryHref())}">返回进入时目录 <span>↗</span></a></div>`;
+}
 function renderMathPlaceholder(expression, mathExpressions, display = false) {
   const source = String(expression ?? '').trim();
   const id = `math-${display ? 'display' : 'inline'}-${mathExpressions.length}`;
@@ -133,13 +157,12 @@ function renderCode(source, language) {
 function noteCategoryLabels(note) { return Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath) : [note.categoryLabel]; }
 function renderCategoryPath(note) { const labels = noteCategoryLabels(note); return labels.map((label, index) => { const path = note.categoryPath?.slice(0, index + 1).join('/') || note.category; return `<a href="library.html?category=${encodeURIComponent(note.category)}&path=${encodeURIComponent(path)}">${escapeHtml(label)}</a>`; }).join('<span aria-hidden="true"> / </span>'); }
 function renderLibraryNav() {
-  const currentDirectory = Array.isArray(currentNote.categoryPath) ? currentNote.categoryPath.join('/') : currentNote.category;
-  const sameLibraryNotes = window.POWER_NOTES.filter((note) => (Array.isArray(note.categoryPath) ? note.categoryPath.join('/') : note.category) === currentDirectory);
+  const sameLibraryNotes = sameDirectoryNotes();
   noteLibraryCount.textContent = `${sameLibraryNotes.length} 篇`;
   noteLibraryList.innerHTML = sameLibraryNotes.map((note) => {
     const labels = noteCategoryLabels(note);
     const active = note.slug === currentNote.slug;
-    return `<a class="note-library-link${active ? ' active' : ''}" href="note.html?slug=${encodeURIComponent(note.slug)}"${active ? ' aria-current="page"' : ''}><span>${escapeHtml(labels.slice(-2).join(' / '))} / NOTE ${escapeHtml(note.number)}</span><strong>${escapeHtml(note.title)}</strong></a>`;
+    return `<a class="note-library-link${active ? ' active' : ''}" href="${escapeAttribute(noteHref(note))}"${active ? ' aria-current="page"' : ''}><span>${escapeHtml(labels.slice(-2).join(' / '))} / NOTE ${escapeHtml(note.number)}</span><strong>${escapeHtml(note.title)}</strong></a>`;
   }).join('');
 }
 const CALLOUT_LABELS = { note: 'NOTE', info: 'INFO', tip: 'TIP', hint: 'HINT', success: 'SUCCESS', question: 'QUESTION', warning: 'WARNING', caution: 'CAUTION', failure: 'FAILURE', danger: 'DANGER', bug: 'BUG', example: 'EXAMPLE', quote: 'QUOTE' };
@@ -379,4 +402,4 @@ function enhanceMarkdown(renderResult) {
 renderLibraryNav();
 noteCrumb.textContent = currentNote.title;
 document.title = `${currentNote.title}｜Power Notes`;
-fetch(currentNote.file).then((response) => { if (!response.ok) throw new Error('Markdown file not found'); return response.text(); }).then((markdown) => { const renderResult = renderMarkdown(markdown); noteBody.innerHTML = `<div class="note-header"><p class="eyebrow">${currentNote.categoryLabel.toUpperCase()} / NOTE ${currentNote.number}</p><div class="note-date-line">${currentNote.date} · ${currentNote.readTime.toUpperCase()}</div><div class="note-category-path" id="noteCategoryPath" aria-label="笔记分类路径">${renderCategoryPath(currentNote)}</div><h1>${escapeHtml(currentNote.title)}</h1><p class="note-lead">${escapeHtml(cleanNoteSummary(currentNote.summary))}</p></div>${renderResult.html}<div class="article-end"><span>本文由 Markdown 源文件驱动</span><a href="library.html?category=${encodeURIComponent(currentNote.category)}&path=${encodeURIComponent(currentNote.category)}">继续浏览 ${escapeHtml(currentNote.categoryLabel)} →</a></div>`; enhanceMarkdown(renderResult); }).catch((error) => { noteBody.innerHTML = `<div class="empty-state">笔记暂时无法加载：${error.message}</div>`; });
+fetch(currentNote.file).then((response) => { if (!response.ok) throw new Error('Markdown file not found'); return response.text(); }).then((markdown) => { const renderResult = renderMarkdown(markdown); noteBody.innerHTML = `<div class="note-header"><p class="eyebrow">${currentNote.categoryLabel.toUpperCase()} / NOTE ${currentNote.number}</p><div class="note-date-line">${currentNote.date} · ${currentNote.readTime.toUpperCase()}</div><div class="note-category-path" id="noteCategoryPath" aria-label="笔记分类路径">${renderCategoryPath(currentNote)}</div><h1>${escapeHtml(currentNote.title)}</h1><p class="note-lead">${escapeHtml(cleanNoteSummary(currentNote.summary))}</p></div>${renderResult.html}${renderArticleEnd()}`; enhanceMarkdown(renderResult); }).catch((error) => { noteBody.innerHTML = `<div class="empty-state">笔记暂时无法加载：${error.message}</div>`; });
