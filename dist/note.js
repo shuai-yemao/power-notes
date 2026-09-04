@@ -2,6 +2,7 @@ const noteBody = document.querySelector('#markdownBody');
 const noteToc = document.querySelector('#noteToc');
 const noteLibraryList = document.querySelector('#noteLibraryList');
 const noteLibraryCount = document.querySelector('#noteLibraryCount');
+const noteLibraryBack = document.querySelector('#noteLibraryBack');
 const noteCrumb = document.querySelector('#noteCrumb');
 const slug = new URLSearchParams(location.search).get('slug') || window.POWER_NOTES[0].slug;
 const currentNote = window.POWER_NOTES.find((note) => note.slug === slug) || window.POWER_NOTES[0];
@@ -81,7 +82,7 @@ function renderArticleEnd() {
   const previous = currentIndex > 0 ? notes[currentIndex - 1] : null;
   const next = currentIndex >= 0 && currentIndex < notes.length - 1 ? notes[currentIndex + 1] : null;
   const renderSibling = (note, label, direction) => note ? `<a class="article-sibling article-sibling-${direction}" href="${escapeAttribute(noteHref(note))}"><span>${label}</span><strong>${escapeHtml(note.title)}</strong></a>` : `<span class="article-sibling article-sibling-${direction} is-disabled"><span>${label}</span><strong>没有更多笔记</strong></span>`;
-  return `<div class="article-end"><div class="article-sibling-row">${renderSibling(previous, '上一篇', 'previous')}${renderSibling(next, '下一篇', 'next')}</div><a class="article-end-return" href="${escapeAttribute(returnDirectoryHref())}">返回进入时目录 <span>↗</span></a></div>`;
+  return `<div class="article-end"><div class="article-sibling-row">${renderSibling(previous, '上一篇', 'previous')}${renderSibling(next, '下一篇', 'next')}</div></div>`;
 }
 function renderMathPlaceholder(expression, mathExpressions, display = false) {
   const source = String(expression ?? '').trim();
@@ -400,6 +401,7 @@ function enhanceMarkdown(renderResult) {
 }
 
 renderLibraryNav();
+if (noteLibraryBack) noteLibraryBack.href = returnDirectoryHref();
 noteCrumb.textContent = currentNote.title;
 document.title = `${currentNote.title}｜Power Notes`;
 fetch(currentNote.file).then((response) => { if (!response.ok) throw new Error('Markdown file not found'); return response.text(); }).then((markdown) => { const renderResult = renderMarkdown(markdown); noteBody.innerHTML = `<div class="note-header"><p class="eyebrow">${currentNote.categoryLabel.toUpperCase()} / NOTE ${currentNote.number}</p><div class="note-date-line">${currentNote.date} · ${currentNote.readTime.toUpperCase()}</div><div class="note-category-path" id="noteCategoryPath" aria-label="笔记分类路径">${renderCategoryPath(currentNote)}</div><h1>${escapeHtml(currentNote.title)}</h1><p class="note-lead">${escapeHtml(cleanNoteSummary(currentNote.summary))}</p></div>${renderResult.html}${renderArticleEnd()}`; enhanceMarkdown(renderResult); }).catch((error) => { noteBody.innerHTML = `<div class="empty-state">笔记暂时无法加载：${error.message}</div>`; });
