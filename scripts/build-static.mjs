@@ -18,7 +18,7 @@ const files = [
   'robots.txt',
   'sitemap.xml',
 ];
-const directories = ['assets', 'notes'];
+const directories = ['notes'];
 
 fs.rmSync(outputDir, { recursive: true, force: true });
 fs.mkdirSync(outputDir, { recursive: true });
