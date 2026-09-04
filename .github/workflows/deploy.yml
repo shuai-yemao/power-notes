@@ -39,12 +39,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f index.html
-          test -f library.html
-          test -f note.html
+          node scripts/build-static.mjs
+          test -f dist/index.html
+          test -f dist/library.html
+          test -f dist/note.html
           test -f .openai/hosting.json
-          test -f sitemap.xml
-          test -f robots.txt
+          test -f dist/sitemap.xml
+          test -f dist/robots.txt
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -63,7 +64,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -2,6 +2,8 @@
 
 个人学习知识库博客，使用原生 HTML、CSS 和 JavaScript 构建，Markdown 文件作为笔记内容源。
 
+发布前会通过 `scripts/build-static.mjs` 生成 `dist` 静态产物目录。
+
 ## 本地预览
 
 ```powershell
@@ -15,7 +17,7 @@ python -m http.server 4173
 `.github/workflows/deploy.yml` 会在推送到 `main` 或手动触发时：
 
 1. 检查全部 JavaScript 文件语法；
-2. 检查静态站点入口和 Sites 配置文件；
-3. 通过 GitHub Pages 发布站点。
+2. 构建并检查 `dist` 静态产物和 Sites 配置文件；
+3. 通过 GitHub Pages 发布 `dist`。
 
 Pull Request 只执行校验，不会直接发布生产站点。
