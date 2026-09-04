@@ -82,7 +82,7 @@ function inlineMarkdown(value, mathExpressions = activeMathExpressions) {
     .replace(/__([^_]+)__/g, '<strong>$1</strong>')
     .replace(/~~([^~]+)~~/g, '<del>$1</del>')
     .replace(/==([^=\n]+)==/g, '<mark>$1</mark>')
-    .replace(/(^|[\s(])#([A-Za-z0-9_\-\/]+)/g, '$1<span class="markdown-tag">#$2</span>')
+    .replace(/(^|[\s(])#([\p{L}\p{N}_\-/]+)/gu, '$1<span class="markdown-tag">#$2</span>')
     .replace(/(?<![\w*])\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>')
     .replace(/@@POWER_TOKEN_(\d+)@@/g, (_, index) => tokens[Number(index)]);
 }
