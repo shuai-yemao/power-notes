@@ -63,3 +63,16 @@ $$
 ```
 
 Mermaid、ECharts 和 KaTeX 只在当前笔记确实包含对应内容时按需加载；外部渲染库加载失败时会保留 Mermaid、ECharts 或 LaTeX 源码，避免笔记内容消失。JSON 代码块支持 `json` 和 `jsonc` 语言标记。
+
+## 导入 Deep-In-Embedded 笔记
+
+使用导入器可以把 `Deep-In-Embedded` 的 Markdown 笔记按原仓库层级加入知识库：
+
+```powershell
+node scripts/import-deep-in-embedded.mjs --source=..\Deep-In-Embedded-source
+node scripts/build-static.mjs
+```
+
+导入器会记录源仓库提交号，并在每篇笔记顶部保留来源链接。图片文件不会复制到当前站点仓库；本次导入将图片引用重写为源仓库固定提交的 GitHub Raw 地址，因此 Git 只保存 Markdown 和索引文件，避免大量二进制文件阻塞上传。后续源仓库更新时重新执行导入器即可刷新内容和固定提交地址。
+
+这种方式依赖源仓库保持公开且可访问。如果未来需要完全独立于源仓库长期保存图片，再将图片迁移到 Git LFS、对象存储或独立资源仓库，并把导入器的图片地址策略切换到该资源域名。

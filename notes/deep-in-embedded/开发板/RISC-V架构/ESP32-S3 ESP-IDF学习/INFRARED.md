@@ -1,0 +1,26 @@
+> 来源：Deep-In-Embedded / [开发板/RISC-V架构/ESP32-S3 ESP-IDF学习/INFRARED.md](https://github.com/shuai-yemao/Deep-In-Embedded/blob/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/RISC-V%E6%9E%B6%E6%9E%84/ESP32-S3%20ESP-IDF%E5%AD%A6%E4%B9%A0/INFRARED.md)
+
+### RMT函数解析
+需要导入必要的头文件：#include "driver/rmt_rx.h"
+
+esp_err_t rmt_new_rx_channel(const rmt_rx_channel_config_t *config,
+ rmt_channel_handle_t *ret_chan);
+	 该函数用于安装 RMT 接收通道
+	 参数表
+		 ![file-20260421201556613.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/RISC-V%E6%9E%B6%E6%9E%84/ESP32-S3%20ESP-IDF%E5%AD%A6%E4%B9%A0/assets/INFRARED/file-20260421201556613.png)
+esp_err_t rmt_rx_register_event_callbacks(rmt_channel_handle_t rx_channel,const rmt_rx_event_callbacks_t *cbs,void *user_data);
+	该函数用于配置 RMT 接收通道的回调函数
+	参数表
+		![file-20260421201556616.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/RISC-V%E6%9E%B6%E6%9E%84/ESP32-S3%20ESP-IDF%E5%AD%A6%E4%B9%A0/assets/INFRARED/file-20260421201556616.png)
+esp_err_t rmt_new_ir_nec_encoder(const ir_nec_encoder_config_t *config,rmt_encoder_handle_t *ret_encoder);
+	该函数用于创建一个基于 NEC 协议的 RMT 编码器
+	参数表
+		![file-20260421201556622.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/RISC-V%E6%9E%B6%E6%9E%84/ESP32-S3%20ESP-IDF%E5%AD%A6%E4%B9%A0/assets/INFRARED/file-20260421201556622.png)
+esp_err_t rmt_enable(rmt_channel_handle_t channel);
+	该函数用于使能 RMT 接收通道
+	参数表
+		![file-20260421201556627.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/RISC-V%E6%9E%B6%E6%9E%84/ESP32-S3%20ESP-IDF%E5%AD%A6%E4%B9%A0/assets/INFRARED/file-20260421201556627.png)
+esp_err_t rmt_receive(rmt_channel_handle_t rx_channel,void *buffer,size_t buffer_size,const rmt_receive_config_t *config);
+	该函数用于启动 RMT 接收通道的接收任务
+	参数表
+		![file-20260421201556631.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/RISC-V%E6%9E%B6%E6%9E%84/ESP32-S3%20ESP-IDF%E5%AD%A6%E4%B9%A0/assets/INFRARED/file-20260421201556631.png)

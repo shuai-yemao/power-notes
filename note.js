@@ -103,7 +103,8 @@ function renderCode(source, language) {
 function noteCategoryLabels(note) { return Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath) : [note.categoryLabel]; }
 function renderCategoryPath(note) { const labels = noteCategoryLabels(note); return labels.map((label, index) => { const path = note.categoryPath?.slice(0, index + 1).join('/') || note.category; return `<a href="library.html?category=${encodeURIComponent(note.category)}&path=${encodeURIComponent(path)}">${escapeHtml(label)}</a>`; }).join('<span aria-hidden="true"> / </span>'); }
 function renderLibraryNav() {
-  const sameLibraryNotes = window.POWER_NOTES.filter((note) => note.category === currentNote.category);
+  const currentDirectory = Array.isArray(currentNote.categoryPath) ? currentNote.categoryPath.join('/') : currentNote.category;
+  const sameLibraryNotes = window.POWER_NOTES.filter((note) => (Array.isArray(note.categoryPath) ? note.categoryPath.join('/') : note.category) === currentDirectory);
   noteLibraryCount.textContent = `${sameLibraryNotes.length} 篇`;
   noteLibraryList.innerHTML = sameLibraryNotes.map((note) => {
     const labels = noteCategoryLabels(note);

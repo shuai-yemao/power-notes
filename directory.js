@@ -49,6 +49,12 @@ function renderTaxonomy() {
   if (!taxonomyTree) return;
   taxonomyTree.innerHTML = window.POWER_TAXONOMY.map((node) => renderTaxonomyNode(node, [], 1)).join('');
   taxonomyCount.textContent = `${window.POWER_NOTES.length} 篇`;
+  directoryTabs.forEach((tab) => {
+    const filter = tab.dataset.filter;
+    const count = filter === 'all' ? window.POWER_NOTES.length : window.POWER_NOTES.filter((note) => note.category === filter).length;
+    const badge = tab.querySelector('b');
+    if (badge) badge.textContent = count;
+  });
 }
 
 function updateDirectoryUrl() {

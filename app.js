@@ -5,7 +5,7 @@ const categories = [...document.querySelectorAll('.category')];
 const searchable = [...document.querySelectorAll('[data-search]')];
 const resultCount = document.querySelector('#resultCount');
 const emptyState = document.querySelector('#emptyState');
-const categoryTotals = { all: 24, embedded: 8, software: 6, tools: 5, thinking: 5 };
+const categoryTotals = ['all', 'embedded', 'software', 'tools', 'thinking', 'deep-in-embedded'].reduce((totals, category) => { totals[category] = category === 'all' ? window.POWER_NOTES.length : window.POWER_NOTES.filter((note) => note.category === category).length; return totals; }, {});
 const markdownSearchIndex = new Map();
 
 function loadMarkdownSearchIndex() {

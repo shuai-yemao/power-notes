@@ -13,6 +13,7 @@ const files = [
   'directory.js',
   'note.js',
   'notes.js',
+  'deep-in-embedded.js',
   'taxonomy.js',
   'styles.css',
   'robots.txt',

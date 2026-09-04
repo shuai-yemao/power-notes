@@ -1,0 +1,65 @@
+> 来源：Deep-In-Embedded / [开发板/ARM架构/STM32F411CEU6/SWV工作原理.md](https://github.com/shuai-yemao/Deep-In-Embedded/blob/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/SWV%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.md)
+
+标签： #ITM #STM32 #下载原理
+
+日期：2026.3.4
+
+## 1. 学习目标
+
+1. 了解什么是 swv，什么是 swd，什么是 swo
+2. Swv 核心功能模块有哪些
+3. ITM 作用及其原理
+
+## 2. 逐点费曼精讲
+
+### 知识点 1：swv，swd，swo 概念
+
+#### 通俗人话解释（无术语）
+
+swv 就是一个实时监控摄像头，swd 就是一个非实时监控摄像头，swo 就是一个送快递的
+
+#### 核心逻辑/原理
+
+swv 协议通过 ITM/DWT 将数据传给 TPIU 格式化后发送给 Jink，最后发送到上位机数据显示窗口；
+
+#### 关键公式/结论（如有）
+
+ swv 的特性
+
+	1. 非侵入性（不会影响系统的实时性）
+
+### 知识点 2：ITM 的作用及其原理
+
+#### 通俗人话解释 （无术语）
+
+ITM 是一个翻译
+
+#### 核心逻辑/原理
+
+根据芯片重定向发送的数据，形成一个数据包，数据包包括通道头，数据 ascll 码，时间戳，
+
+- ---
+
+## 3. 相关资料
+
+### 📸 图片
+
+Swv 的整体示意图
+
+![file-20260421201605480.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/SWV%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/file-20260421201605480.png)
+
+打开 swo 引脚输出
+
+![file-20260421201605483.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/SWV%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/file-20260421201605483.png)
+
+### 🎥 视频
+
+### 🔗 资料链接
+
+[‬﻿‍﻿‍​﻿​⁠‍‌‍​‬‌‬​﻿​﻿​​‌‌​‌‬‌​⁠‬⁠​​​⁠​​﻿​⁠‬﻿​⁠‌​‌﻿02 SWV工作原理（ITM） - 飞书云文档](https://twd6onxsxva.feishu.cn/docx/W30TdYlDGoyvi4xNLedcg189ngh)
+
+[STLink驱动支持SWO跟踪输出配置方法-CSDN博客](https://blog.csdn.net/p8q9r0/article/details/155613019)
+
+### 💻 代码/公式
+
+## 4. Q&A
