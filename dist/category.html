@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Power Notes 独立知识库页面：按层级目录和关键词浏览个人学习笔记。">
+  <meta name="theme-color" content="#f4f0e8">
+  <link rel="canonical" href="https://shuai-yemao.github.io/power-notes/category.html">
+  <link rel="stylesheet" href="styles.css">
+  <title>知识库分类｜Power Notes</title>
+</head>
+<body class="category-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Power Notes 首页"><span class="brand-mark">PN</span><span><strong>POWER NOTES</strong><small>个人知识库</small></span></a>
+      <nav class="main-nav" aria-label="主导航"><a href="index.html">首页</a><a class="active" href="library.html" aria-current="page">知识库首页</a><a href="index.html#about">关于我</a><a href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
+      <div class="header-actions"><label class="search-box" aria-label="搜索当前知识库"><span>⌕</span><input id="librarySearch" type="search" placeholder="搜索当前知识库" autocomplete="off"><kbd>⌘ K</kbd></label><button class="icon-button" id="themeToggle" type="button" aria-label="切换深色模式">◐</button></div>
+    </div>
+  </header>
+
+  <main id="main" class="page-wrap directory-page">
+    <div class="breadcrumb"><a href="index.html">首页</a><span>/</span><a href="library.html">知识库首页</a><span>/</span><strong id="categoryCrumb">嵌入式</strong></div>
+    <section class="directory-intro" aria-labelledby="categoryTitle">
+      <div><p class="eyebrow" id="categoryEyebrow">KNOWLEDGE BASE / COLLECTION</p><h1 id="categoryTitle">嵌入式<br><em id="categorySubtitle">Embedded Systems</em></h1></div>
+      <p id="categoryDescription">从 MCU、RTOS 到驱动边界，记录需要反复验证的工程判断。</p>
+    </section>
+    <div class="directory-toolbar"><a class="text-link" href="library.html">← 返回知识库首页</a><span class="result-count" id="directoryCount">164 条笔记</span></div>
+    <div class="directory-workspace">
+      <aside class="taxonomy-panel" aria-label="当前知识库层级目录"><div class="taxonomy-panel-head"><span>本知识库层级</span><span class="taxonomy-count" id="taxonomyCount">164 篇</span></div><nav class="taxonomy-tree" id="taxonomyTree" aria-label="笔记目录"></nav></aside>
+      <section class="directory-results" aria-labelledby="categoryResultsTitle"><h2 id="categoryResultsTitle" class="sr-only">笔记列表</h2><div class="directory-list" id="directoryList" aria-live="polite"></div><p class="empty-state" id="directoryEmpty" hidden>没有找到匹配的笔记。</p></section>
+    </div>
+  </main>
+  <footer class="site-footer page-wrap"><span>POWER NOTES / A PERSONAL ARCHIVE</span><span>© 2026</span><a href="library.html">返回知识库首页 ↑</a></footer>
+  <script src="notes.js" defer></script><script src="taxonomy.js" defer></script><script src="deep-in-embedded.js" defer></script><script src="directory.js" defer></script><script src="app.js" defer></script>
+</body>
+</html>

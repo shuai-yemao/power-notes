@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for file in app.js directory.js note.js notes.js taxonomy.js; do
+          for file in app.js directory.js home.js library-home.js note.js notes.js taxonomy.js; do
             node --check "$file"
           done
 
@@ -42,6 +42,7 @@ jobs:
           node scripts/build-static.mjs
           test -f dist/index.html
           test -f dist/library.html
+          test -f dist/category.html
           test -f dist/note.html
           test -f .openai/hosting.json
           test -f dist/sitemap.xml

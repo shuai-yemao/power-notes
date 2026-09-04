@@ -1,9 +1,45 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Power Notes 知识库首页：按主题、层级目录和关键词浏览个人学习笔记。"><link rel="canonical" href="https://shuai-yemao.github.io/power-notes/library.html"><link rel="stylesheet" href="styles.css"><title>知识库首页｜Power Notes</title></head>
-<body>
-  <header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span class="brand-mark">PN</span><span><strong>POWER NOTES</strong><small>个人知识库</small></span></a><nav class="main-nav" aria-label="主导航"><a href="index.html">首页</a><a class="active" href="library.html" aria-current="page">知识库首页</a><a href="index.html#about">关于我</a><a href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">GitHub ↗</a></nav><div class="header-actions"><label class="search-box" aria-label="搜索知识库"><span aria-hidden="true">⌕</span><input id="librarySearch" type="search" placeholder="搜索目录" autocomplete="off"><kbd>⌘ K</kbd></label><button class="icon-button" id="themeToggle" type="button" aria-label="切换深色模式">◐</button></div></div></header>
-  <main class="page-wrap directory-page"><div class="breadcrumb"><a href="index.html">首页</a><span>/</span><strong>知识库首页</strong></div><div class="directory-intro"><div><p class="eyebrow">KNOWLEDGE BASE / HOME</p><h1>知识库<br><em>首页</em></h1></div><p>从一个主题进入，再沿着多级目录和笔记之间的连接继续探索。这里是所有公开学习记录的入口与索引。</p></div><div class="directory-toolbar"><div class="directory-tabs" id="directoryTabs"><button class="category active" data-filter="all">全部 <b>4</b></button><button class="category" data-filter="embedded">嵌入式 <b>2</b></button><button class="category" data-filter="software">软件工程 <b>1</b></button><button class="category" data-filter="tools">工具与方法 <b>1</b></button><button class="category" data-filter="thinking">思考与随笔 <b>0</b></button></div><span class="result-count" id="directoryCount">4 条笔记</span></div><div class="directory-workspace"><aside class="taxonomy-panel" aria-label="知识库层级目录"><div class="taxonomy-panel-head"><span>层级目录</span><span class="taxonomy-count" id="taxonomyCount">4 篇</span></div><nav class="taxonomy-tree" id="taxonomyTree" aria-label="层级分类"></nav></aside><section class="directory-results" aria-label="分类笔记列表"><div class="directory-list" id="directoryList" aria-live="polite"></div><p class="empty-state" id="directoryEmpty" hidden>没有找到匹配的笔记。</p></section></div></main>
-  <footer class="site-footer page-wrap"><span>POWER NOTES / A PERSONAL ARCHIVE</span><span>© 2026</span><a href="index.html">返回个人首页 ↑</a></footer><script src="notes.js" defer></script><script src="taxonomy.js" defer></script><script src="deep-in-embedded.js" defer></script><script src="directory.js" defer></script><script src="app.js" defer></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Power Notes 知识库首页：进入嵌入式、软件工程、工具与方法、思考与随笔四个独立知识库。">
+  <meta name="theme-color" content="#f4f0e8">
+  <link rel="canonical" href="https://shuai-yemao.github.io/power-notes/library.html">
+  <link rel="stylesheet" href="styles.css">
+  <title>知识库首页｜Power Notes</title>
+</head>
+<body class="library-home-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Power Notes 首页"><span class="brand-mark">PN</span><span><strong>POWER NOTES</strong><small>个人知识库</small></span></a>
+      <nav class="main-nav" aria-label="主导航"><a href="index.html">首页</a><a class="active" href="library.html" aria-current="page">知识库首页</a><a href="index.html#about">关于我</a><a href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
+      <div class="header-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换深色模式">◐</button></div>
+    </div>
+  </header>
+
+  <main id="main" class="page-wrap library-home">
+    <div class="breadcrumb"><a href="index.html">首页</a><span>/</span><strong>知识库首页</strong></div>
+    <section class="library-home-intro" aria-labelledby="library-home-title">
+      <div><p class="eyebrow">KNOWLEDGE BASE / HOME</p><h1 id="library-home-title">知识库<br><em>地图</em></h1></div>
+      <p>四个独立的知识库，分别收纳不同方向的学习记录。选择一个入口，再从层级目录进入具体笔记。</p>
+    </section>
+
+    <section class="library-home-section" aria-labelledby="library-entries-title">
+      <div class="home-section-label"><p class="eyebrow">FOUR LIBRARIES</p><span id="libraryHomeTotal">197 NOTES</span></div>
+      <h2 id="library-entries-title" class="sr-only">四个知识库</h2>
+      <div class="library-home-grid">
+        <a class="feature-card feature-green" href="category.html?category=embedded"><div class="card-top"><span class="card-kicker">01 / EMBEDDED</span><span class="arrow">↗</span></div><h3>嵌入式<br><em>Embedded Systems</em></h3><p>从 MCU、RTOS 到驱动边界，记录需要反复验证的工程判断。</p><div class="card-bottom"><span><b data-category-count="embedded">164</b> 篇笔记</span><span>进入知识库 →</span></div></a>
+        <a class="feature-card feature-blue" href="category.html?category=software"><div class="card-top"><span class="card-kicker">02 / SOFTWARE</span><span class="arrow">↗</span></div><h3>软件工程<br><em>Software Engineering</em></h3><p>整理架构、质量、协作与交付，让复杂工作拥有可复用的路径。</p><div class="card-bottom"><span><b data-category-count="software">18</b> 篇笔记</span><span>进入知识库 →</span></div></a>
+        <a class="feature-card feature-orange" href="category.html?category=tools"><div class="card-top"><span class="card-kicker">03 / TOOLS</span><span class="arrow">↗</span></div><h3>工具与方法<br><em>Tools &amp; Methods</em></h3><p>记录 Markdown、Obsidian、AI 与自动化工作流的使用方法。</p><div class="card-bottom"><span><b data-category-count="tools">9</b> 篇笔记</span><span>进入知识库 →</span></div></a>
+        <a class="feature-card feature-paper" href="category.html?category=thinking"><div class="card-top"><span class="card-kicker">04 / THINKING</span><span class="arrow">↗</span></div><h3>思考与随笔<br><em>Thinking &amp; Notes</em></h3><p>保留阅读、复盘与生活观察，让还没想明白的部分也有位置。</p><div class="card-bottom"><span><b data-category-count="thinking">6</b> 篇笔记</span><span>进入知识库 →</span></div></a>
+      </div>
+    </section>
+
+    <section class="library-home-note" aria-label="浏览提示"><span class="tiny-mark">↳</span><p>每个知识库都有自己的层级目录、搜索范围和笔记上下文。</p><a class="text-link" href="index.html">返回个人首页 ↗</a></section>
+  </main>
+  <footer class="site-footer page-wrap"><span>POWER NOTES / A PERSONAL ARCHIVE</span><span>© 2026</span><a href="#main">回到顶部 ↑</a></footer>
+  <script src="notes.js" defer></script><script src="deep-in-embedded.js" defer></script><script src="home.js" defer></script><script src="library-home.js" defer></script><script src="app.js" defer></script>
 </body>
 </html>

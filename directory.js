@@ -5,11 +5,21 @@ const directorySearch = document.querySelector('#librarySearch');
 const directoryTabs = [...document.querySelectorAll('#directoryTabs .category')];
 const taxonomyTree = document.querySelector('#taxonomyTree');
 const taxonomyCount = document.querySelector('#taxonomyCount');
+const currentPage = location.pathname.split('/').pop() || 'category.html';
+const isCategoryPage = currentPage === 'category.html';
 const directoryParams = new URLSearchParams(location.search);
-let directoryFilter = directoryParams.get('category') || 'all';
+const categoryRoots = new Set(['embedded', 'software', 'tools', 'thinking']);
+let directoryFilter = directoryParams.get('category') || (isCategoryPage ? 'embedded' : 'all');
 let directoryPath = directoryParams.get('path') || directoryFilter;
 const directoryMarkdownIndex = new Map();
 const expandedPaths = new Set();
+
+const categoryMeta = {
+  embedded: { label: '嵌入式', english: 'Embedded Systems', description: '从 MCU、RTOS 到驱动边界，记录需要反复验证的工程判断。' },
+  software: { label: '软件工程', english: 'Software Engineering', description: '整理架构、质量、协作与交付，让复杂工作拥有可复用的路径。' },
+  tools: { label: '工具与方法', english: 'Tools & Methods', description: '记录 Markdown、Obsidian、AI 与自动化工作流的使用方法。' },
+  thinking: { label: '思考与随笔', english: 'Thinking & Notes', description: '保留阅读、复盘与生活观察，让还没想明白的部分也有位置。' },
+};
 
 function escapeHtml(value) { return String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char])); }
 function escapeAttribute(value) { return escapeHtml(value); }
@@ -21,9 +31,11 @@ function currentDirectoryHref() { const page = location.pathname.split('/').pop(
 function noteHref(note) { return `note.html?slug=${encodeURIComponent(note.slug)}&from=${encodeURIComponent(currentDirectoryHref())}`; }
 
 function normalizeDirectoryState() {
+  if (isCategoryPage && !categoryRoots.has(directoryFilter)) directoryFilter = 'embedded';
+  if (isCategoryPage && directoryPath === 'all') directoryPath = directoryFilter;
   if (directoryPath === 'all') { directoryFilter = 'all'; return; }
   const requestedNode = window.findTaxonomyNode(directoryPath);
-  if (!requestedNode) directoryPath = directoryFilter === 'all' ? 'all' : directoryFilter;
+  if (!requestedNode || (isCategoryPage && pathIds(directoryPath)[0] !== directoryFilter)) directoryPath = directoryFilter;
   directoryFilter = directoryPath === 'all' ? 'all' : pathIds(directoryPath)[0];
 }
 
@@ -51,8 +63,10 @@ function renderTaxonomyNode(node, parentPath, level) {
 function renderTaxonomy() {
   normalizeDirectoryState();
   if (!taxonomyTree) return;
-  taxonomyTree.innerHTML = window.POWER_TAXONOMY.map((node) => renderTaxonomyNode(node, [], 1)).join('');
-  taxonomyCount.textContent = `${window.POWER_NOTES.length} 篇`;
+  const roots = isCategoryPage ? window.POWER_TAXONOMY.filter((node) => node.id === directoryFilter) : window.POWER_TAXONOMY;
+  taxonomyTree.innerHTML = roots.map((node) => renderTaxonomyNode(node, [], 1)).join('');
+  const visibleCount = isCategoryPage ? window.POWER_NOTES.filter((note) => note.category === directoryFilter).length : window.POWER_NOTES.length;
+  if (taxonomyCount) taxonomyCount.textContent = `${visibleCount} 篇`;
   directoryTabs.forEach((tab) => {
     const filter = tab.dataset.filter;
     const count = filter === 'all' ? window.POWER_NOTES.length : window.POWER_NOTES.filter((note) => note.category === filter).length;
@@ -66,7 +80,7 @@ function updateDirectoryUrl() {
   if (directoryFilter !== 'all') params.set('category', directoryFilter);
   if (directoryPath !== 'all') params.set('path', directoryPath);
   const query = params.toString();
-  history.pushState({}, '', `library.html${query ? `?${query}` : ''}`);
+  history.pushState({}, '', `${currentPage}${query ? `?${query}` : ''}`);
 }
 
 function selectDirectoryPath(path) {
@@ -78,6 +92,18 @@ function selectDirectoryPath(path) {
 
 function renderDirectory() {
   normalizeDirectoryState();
+  if (isCategoryPage) {
+    const meta = categoryMeta[directoryFilter] || categoryMeta.embedded;
+    const crumb = document.querySelector('#categoryCrumb');
+    const title = document.querySelector('#categoryTitle');
+    const subtitle = document.querySelector('#categorySubtitle');
+    const description = document.querySelector('#categoryDescription');
+    if (crumb) crumb.textContent = meta.label;
+    if (title) title.firstChild.textContent = `${meta.label}\n`;
+    if (subtitle) subtitle.textContent = meta.english;
+    if (description) description.textContent = meta.description;
+    document.title = `${meta.label}知识库｜Power Notes`;
+  }
   const query = directorySearch.value.trim().toLowerCase();
   const notes = window.POWER_NOTES.filter((note) => {
     const labels = Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath).join(' ') : note.categoryLabel;
@@ -91,7 +117,7 @@ function renderDirectory() {
   renderTaxonomy();
 }
 
-taxonomyTree.addEventListener('click', (event) => {
+if (taxonomyTree) taxonomyTree.addEventListener('click', (event) => {
   const expander = event.target.closest('.taxonomy-expander');
   if (expander && expander.parentElement.dataset.level) {
     const item = expander.closest('.taxonomy-item');
@@ -104,9 +130,9 @@ taxonomyTree.addEventListener('click', (event) => {
   if (selector) selectDirectoryPath(selector.dataset.path);
 });
 directoryTabs.forEach((tab) => tab.addEventListener('click', () => { directoryFilter = tab.dataset.filter; directoryPath = directoryFilter; updateDirectoryUrl(); renderDirectory(); }));
-directorySearch.addEventListener('input', renderDirectory);
-window.addEventListener('popstate', () => { const params = new URLSearchParams(location.search); directoryFilter = params.get('category') || 'all'; directoryPath = params.get('path') || directoryFilter; renderDirectory(); });
-document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); directorySearch.focus(); } });
+if (directorySearch) directorySearch.addEventListener('input', renderDirectory);
+window.addEventListener('popstate', () => { const params = new URLSearchParams(location.search); directoryFilter = params.get('category') || (isCategoryPage ? directoryFilter : 'all'); directoryPath = params.get('path') || directoryFilter; renderDirectory(); });
+document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k' && directorySearch) { event.preventDefault(); directorySearch.focus(); } });
 renderDirectory();
 Promise.all(window.POWER_NOTES.map(async (note) => {
   try {
