@@ -1,0 +1,7 @@
+> 来源：Deep-In-Embedded / [开发板/ARM架构/STM32F103C8T6/STM32F103C8T6FreeRTOS/vTaskDelay积累误差.md](https://github.com/shuai-yemao/Deep-In-Embedded/blob/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F103C8T6/STM32F103C8T6FreeRTOS/vTaskDelay%E7%A7%AF%E7%B4%AF%E8%AF%AF%E5%B7%AE.md)
+
+vTaskDelay函数的延时起点是任务的当前时间，如果任务调度或者其他任务的运行导致无法按时开启，延时的时间点会被推迟从而出现积累误差![file-20260421201631084.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F103C8T6/STM32F103C8T6FreeRTOS/assets/vTaskDelay%E7%A7%AF%E7%B4%AF%E8%AF%AF%E5%B7%AE/file-20260421201631084.png)
+调用延时函数时，该函数会获取任务的时间戳，==积累误差的来源是在执行任务期间有更高优先级的任务或者中断程序的运行==，例如任务从1000tick开始，延时500tick，理论上运行结束后，时间戳为1500tick，但是因为有更高优先级的任务执行了5tick，所以实际结束后的时间戳为1505tick，下次调度时，仍然叠加5tick
+![file-20260421201631089.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F103C8T6/STM32F103C8T6FreeRTOS/assets/vTaskDelay%E7%A7%AF%E7%B4%AF%E8%AF%AF%E5%B7%AE/file-20260421201631089.png)
+周期性任务中不推荐使用vtaskdelay函数![file-20260421201631093.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F103C8T6/STM32F103C8T6FreeRTOS/assets/vTaskDelay%E7%A7%AF%E7%B4%AF%E8%AF%AF%E5%B7%AE/file-20260421201631093.png)
+pdMs_T0_TICKS是将ms转换为tick数

@@ -1,0 +1,330 @@
+> 来源：Deep-In-Embedded / [开发板/ARM架构/STM32F411CEU6/根据数据手册编写AHT21的模拟IIC.md](https://github.com/shuai-yemao/Deep-In-Embedded/blob/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC.md)
+
+日期：2026.07
+
+文章标签： #BSP #IIC #AHT21 #STM32F411CEU6
+
+## 知识点 1：模拟 IIC
+
+> 模拟 IIC 是使用普通 GPIO 按照 I2C 协议手动产生 SCL/SDA 电平和时序的通信方式。
+
+### 实际意义
+
+硬件 IIC 由 MCU 外设自动产生协议时序；模拟 IIC 则由软件控制 GPIO 完成同样的协议。理解模拟 IIC，能够把“总线协议”拆解为可观察的电平变化，也能在硬件 IIC 外设资源不足、引脚不固定或需要快速验证传感器时继续使用 I2C 设备。
+
+### 应用场景
+
+1. MCU 没有足够的硬件 IIC 外设，或硬件 IIC 引脚不方便使用。
+2. 快速验证 EEPROM、AHT21、OLED 等 I2C 外设。
+3. 在不同 MCU 之间移植同一套 I2C 协议层，只替换 GPIO 和延时函数。
+4. 调试硬件 IIC 异常，通过软件逐位控制和逻辑分析仪观察总线。
+
+### 核心逻辑/原理
+
+#### 1. I2C 总线结构
+
+![file-20260716091632415.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716091632415.png)
+
+I2C 使用两根线：SCL 是时钟线，SDA 是数据线。两根线都需要上拉电阻，设备只能主动拉低，释放后由上拉电阻恢复高电平。因此 I2C 可以允许多个设备共享总线，设备地址用于区分通信对象。
+
+#### 2. 数据有效规则
+
+普通数据传输中，SDA 只能在 SCL 为低电平时改变；SCL 为高电平时 SDA 必须保持稳定，从机在高电平期间采样。只有 Start 和 Stop 条件允许 SDA 在 SCL 高电平期间变化。
+
+#### 3. 一次字节传输
+
+一个字节由 8 个数据位和第 9 个应答位组成，数据按 MSB first 发送。发送方释放 SDA 后，由接收方在第 9 个时钟拉低 SDA 表示 ACK；保持释放表示 NACK。主机读取多个字节时，中间字节发送 ACK，最后一个字节发送 NACK。
+
+#### 4. 软件实现的最小模块
+
+```text
+GPIO适配层：初始化、写电平、读电平、微秒延时
+      ↓
+位级时序层：Start、Stop、发送字节、接收字节、ACK/NACK
+      ↓
+事务层：设备地址、寄存器/命令、连续读写
+      ↓
+设备驱动层：AHT21命令、状态判断、数据换算、CRC
+```
+
+### 关键公式/结论
+
+1. 总线空闲状态：`SCL=1，SDA=1`。
+2. Start：`SCL=1` 时 `SDA` 从高变低；Stop：`SCL=1` 时 `SDA` 从低变高。
+3. 地址帧通常为：`7 位地址 + 1 位 R/W + 1 位 ACK`。
+4. 上升时间近似为 `t_rise ≈ 0.8473 × R_p × C_b`，上拉电阻越大，上升沿越慢。
+5. 模拟 IIC 的速度和可靠性取决于 GPIO 切换、延时精度、上拉电阻和总线电容
+6. IIC 采用开漏输出不会因为电气冲突导致 GPIO 的 N-MOS 管烧毁 ![file-20260716091155338.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716091155338.png)
+
+### 实际操作步骤
+
+1. 确认 SDA/SCL 引脚、供电电压和上拉电阻。
+2. 实现 GPIO 初始化、GPIO 写、GPIO 读和微秒延时四个底层函数。
+3. 编写并单独验证 Start、Stop、发送字节和接收字节。
+4. 使用逻辑分析仪检查 8 位数据、第 9 位 ACK 以及 SDA/SCL 电平关系。
+5. 再根据具体器件的数据手册编写地址帧、命令帧和数据解析。
+
+### 常见问题
+
+| 现象 | 根因 | 修复方向 |
+| --- | --- | --- |
+| 总线一直为低电平 | 设备未释放 SDA/SCL 或 GPIO 配置错误 | 检查输入/开漏模式和 Stop 流程 |
+| 没有 ACK | 地址、上拉、接线或电平不正确 | 先抓取地址字节和第 9 个时钟 |
+| 数据位错乱 | SDA 在 SCL 高电平期间发生变化 | 增加建立/保持延时，检查时序顺序 |
+| 程序卡死 | 等 ACK 没有超时 | 增加 ACK 超时和总线恢复 |
+
+---
+
+## 知识点 2：根据数据手册编写 AHT21 的模拟 IIC
+
+### 实际意义
+
+AHT21 使用两线 I2C 接口。`bsp_aht21_iic.c` 不调用 STM32 硬件 I2C 外设，而是通过 GPIO 电平变化和微秒延时直接生成总线时序，因此可以把协议层复用到不同 MCU，只需替换 GPIO 适配函数。
+
+### AHT21 数据手册要点
+
+| 项目 | 内容 |
+| --- | --- |
+| 7 位从机地址 | `0x38` |
+| 写地址字节 | `0x70`（`0x38 << 1`） |
+| 读地址字节 | `0x71`（`(0x38 << 1) + 1`） |
+| 触发测量 | `0xAC 0x33 0x00` |
+| 读取状态 | `0x71` 命令后重新起始，再读取 1 字节 |
+| 软复位 | `0xBA` |
+| 测量返回 | 状态字节 + 20 位湿度 + 20 位温度 + CRC 字节 |
+
+> [!warning] 地址的常见混淆
+> 数据手册给出的 `0x38` 是 7 位地址；`IICSendByte()` 发送前会左移地址，所以调用底层接口时传入 `0x38`，不要提前传入 `0x70`。
+
+### 核心逻辑/原理
+
+#### 1. 平台适配层
+
+头文件中的 `iic_gpio_ops_t` 将硬件操作抽象为四个函数：`pf_gpio_init`、`pf_gpio_write`、`pf_gpio_read` 和 `pf_delay_us`。`iic_bus_t` 保存 SDA/SCL 端口、引脚、输入输出模式以及操作表。这样 `bsp_aht21_iic.c` 只关心协议，不依赖 `HAL_GPIO_*`。
+
+SDA 必须支持“输出低电平”和“释放为输入/高电平”两种状态；SCL 也应使用开漏或等效的释放方式，并配置外部上拉电阻。总线空闲状态是 `SCL=1、SDA=1`。
+
+#### 2. I2C 基本时序
+
+1. **Start**：SCL、SDA 均为高时，将 SDA 拉低，再将 SCL 拉低。
+2. **发送 1 字节**：按 MSB first 发送 8 位。每一位都在 SCL 低电平期间设置 SDA，在 SCL 高电平期间保持稳定供从机采样。
+3. **ACK/NACK**：第 9 个时钟周期由接收方控制 SDA。接收方拉低 SDA 是 ACK，保持释放/高电平是 NACK。
+4. **接收 1 字节**：主机释放 SDA，在 SCL 高电平期间读取 SDA，并按位左移拼接。
+5. **Stop**：先保持 SDA 低并拉高 SCL，最后在 SCL 高电平期间释放 SDA。
+
+`IICStart()`、`IICStop()`、`IICSendByte()`、`IICReceiveByte()`、`IICWaitAck()`、`IICSendAck()` 和 `IICSendNotAck()` 分别对应这些时序。
+
+#### 3.1 为什么模拟 IIC 必须使用开漏思想
+
+I2C 的逻辑高电平不是由主机主动推高，而是由上拉电阻完成。主机和从机都只能主动拉低总线，释放总线后才能得到高电平。这样多个设备可以共享 SDA/SCL，避免一个设备输出高电平、另一个设备输出低电平造成电气冲突。
+
+在 STM32 上可以用两种方式表达“释放”：
+
+1. SDA/SCL 配置为开漏输出，写 0 表示拉低，写 1 表示释放。
+2. 输出低电平时配置为输出，释放时切换为输入上拉或高阻态。
+
+本工程通过 `SDA_Input_Mode()`、`SDA_Output_Mode()` 和 GPIO 操作表完成第二种抽象。需要注意：输入模式不是为了读取一个固定的高电平，而是为了让 AHT21 有机会接管 SDA。
+
+#### 3.2 Start 和 Stop 的逐步实现
+
+```text
+Start：SDA=1，SCL=1 → 等待 → SDA=0 → 等待 → SCL=0
+Stop ：SCL=0，SDA=0 → 等待 → SCL=1 → 等待 → SDA=1
+```
+
+代码中先保证 SDA/SCL 的初始电平，再改变 SDA，确保逻辑分析仪能够识别有效的总线条件。Start 和 Stop 的特殊之处在于 SDA 在 SCL 为高时发生变化；普通数据位不能违反这一规则。
+
+#### 3.3 发送和接收 1 字节的逐步实现
+
+发送函数从最高位开始检查 `cSendByte & 0x80`，将该位写入 SDA，然后左移发送变量。每一位都经历“拉低 SCL → 设置 SDA → 延时建立 → 拉高 SCL → 延时保持 → 拉低 SCL”。
+
+接收函数先释放 SDA，然后重复 8 次“拉低 SCL → 拉高 SCL → 延时 → 读取 SDA”。读取到的位通过 `recv_byte <<= 1` 放入结果的最低位，最终得到 MSB first 的完整字节。
+
+#### 3.4 ACK 和 NACK 的逐步实现
+
+发送完 8 位后，发送方必须释放 SDA，并把 SCL 拉高；接收方在第 9 个时钟将 SDA 拉低表示 ACK。`IICWaitAck()` 设置 SDA 为输入并循环读取 SDA，直到检测到低电平或达到 `IIC_ACK_TIMEOUT`。超时时会停止总线，防止任务永久阻塞。
+
+主机读取多个字节时，除最后一个字节外都调用 `IICSendAck()`，告诉从机“继续发送”；读取最后一个字节后调用 `IICSendNotAck()`，告诉从机“本次读取结束”，随后再发送 Stop。
+
+### IIC 函数的具体逻辑
+
+| 函数                       | 具体执行逻辑                                                      |
+| ------------------------ | ----------------------------------------------------------- |
+| `IICInit(bus)`           | 检查 `bus/ops`，初始化 SCL 和 SDA，释放两根线，建立空闲状态                     |
+| `IICStart(bus)`          | SDA 输出 → SCL 释放为高 → SDA 释放为高 → SDA 拉低 → SCL 拉低              |
+| `IICStop(bus)`           | SCL 拉低、SDA 拉低 → SCL 释放为高 → SDA 释放为高                         |
+| `IICWaitAck(bus)`        | SDA 切输入 → SCL 拉高 → 轮询 SDA → 超时则 Stop → 成功后 SCL 拉低并恢复 SDA 输出 |
+| `IICSendAck(bus)`        | SCL 拉低 → SDA 拉低 → SCL 拉高产生第 9 个时钟 → SCL 拉低                  |
+| `IICSendNotAck(bus)`     | SCL 拉低 → SDA 释放为高 → SCL 拉高产生第 9 个时钟 → SCL 拉低                |
+| `IICSendByte(bus, byte)` | 循环 8 次，取最高位写 SDA，左移数据，在 SCL 高电平期间保持                         |
+| `IICReceiveByte(bus)`    | SDA 切输入，循环 8 次在 SCL 高电平期间读取 SDA，并左移拼接                       |
+| `IIC_Write_One_Byte()`   | Start → 写地址 +W → ACK → 写寄存器 → ACK → 写数据 → ACK → Stop        |
+| `IIC_Write_Multi_Byte()` | 在单次事务中连续发送地址、寄存器和多个数据字节，并逐字节检查 ACK                          |
+| `IIC_Read_One_Byte()`    | 先写地址和寄存器，再重复 Start，发送地址 +R，读取 1 字节，NACK，Stop                |
+| `IIC_Read_Multi_Byte()`  | 发送地址和寄存器后重复 Start，连续读取数据，中间 ACK，最后 NACK 和 Stop              |
+
+> [!info] 分层边界
+> `IIC_*` 函数只负责总线位级时序；AHT21 的 `0xAC`、`0x33`、`0x00`、忙标志、数据换算和 CRC 应由 AHT21 设备驱动层负责。
+
+#### 4. AHT21 测量事务
+
+![center](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716092237056.png)
+
+```text
+Start → 0x70 → ACK → 0xAC → ACK → 0x33 → ACK → 0x00 → ACK → Stop
+等待测量完成（状态位 bit7 为 0）
+Start → 0x71 → ACK → 读取 7 字节 → 前 6 字节后 ACK → 最后一字节后 NACK → Stop
+```
+
+状态字节的 bit7 是忙标志，bit3 表示校准使能。6 个数据字节按下式拼接：
+
+![center](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716092258135.png)
+
+```text
+raw_humidity = (data[1] << 12) | (data[2] << 4) | (data[3] >> 4)
+raw_temperature = ((data[3] & 0x0F) << 16) | (data[4] << 8) | data[5]
+humidity = raw_humidity * 100 / 2^20
+temperature = raw_temperature * 200 / 2^20 - 50
+```
+
+CRC 校验应对 `data[0]` 到 `data[5]` 计算 CRC-8，再与 `data[6]` 比较；校验失败时不能把结果当作有效温湿度。
+
+### 关键公式/结论
+
+1. `write_address = 0x38 << 1 = 0x70`，`read_address = 0x71`。
+2. 数据在 SCL 高电平期间必须稳定；SDA 只能在 SCL 低电平期间改变，Start/Stop 是例外。
+3. `t_rise ≈ 0.8473 × R_p × C_b`。上拉电阻过大，上升沿慢；过小则低电平灌电流增大。![center](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716092351047.png)
+4. `IICWaitAck()` 必须有超时退出，避免 SDA 被拉死时程序永久阻塞。
+5. AHT21 的测量命令属于设备层；当前 `bsp_aht21_iic.c` 是通用 IIC 传输层，不应把 AHT21 命令硬编码进通用 `IIC_Write_*`/`IIC_Read_*` 接口。
+6. AHT 21 支持完全静态频率，可以实现如当 MCU 故障停止与 AHT 21 通信后，MCU 重启能够与 AHT 21 重新通信恢复至故障前的 IIC 通信阶段
+
+### 代码与接口对应
+
+| 代码接口                               | 作用                                         |
+| ---------------------------------- | ------------------------------------------ |
+| `IICInit()`                        | 配置 SDA/SCL，进入总线空闲状态                        |
+| `IICStart()` / `IICStop()`         | 生成起始/停止条件                                  |
+| `IICSendByte()`                    | MSB first 发送 8 位                           |
+| `IICReceiveByte()`                 | 读取 8 位并拼接为字节                               |
+| `IICWaitAck()`                     | 释放 SDA，读取从机 ACK，并带超时                       |
+| `IICSendAck()` / `IICSendNotAck()` | 主机读取多字节时应答或结束读取                            |
+| `IIC_Write_Multi_Byte()`           | 通用写事务；AHT21 可用于发送测量命令                      |
+| `IIC_Read_Multi_Byte()`            | 通用连续读取；需确认具体 AHT21 状态读取是否要求 Stop 后重新 Start |
+
+### 实际操作步骤
+
+#### 1. 硬件检查
+
+1. 按原理图确认 AHT21 的 VCC、GND、SDA、SCL，确认 SDA/SCL 没有接反。
+2. 确认 SDA/SCL 各有上拉电阻，示波器静态测量时两根线应接近 VCC。
+3. 确认 MCU 与 AHT21 的 IO 电平兼容，先不要在没有上拉的情况下强行输出高电平。
+
+#### 2. 平台函数适配
+
+1. 在 `pf_gpio_init` 中实现输入/输出模式切换。
+2. 在 `pf_gpio_write` 中只负责拉低或释放 GPIO，不要用推挽输出主动驱动高电平。
+3. 在 `pf_gpio_read` 中读取 SDA 输入寄存器。
+4. 在 `pf_delay_us` 中提供稳定的微秒延时，并用示波器或逻辑分析仪确认实际延时时间。
+5. 填充 `iic_bus_t`，绑定 SDA/SCL 端口、引脚、输入输出模式和操作表。
+
+#### 3. 先验证底层波形
+
+1. 调用 `IICInit()`，确认空闲状态为 `SCL=1、SDA=1`。
+2. 单独调用 `IICStart()` 和 `IICStop()`，确认 Start 是 SDA 高到低、Stop 是 SDA 低到高，且发生时 SCL 为高。
+3. 发送 `0x70`，观察 8 位数据后第 9 个时钟是否出现 SDA 低电平 ACK。
+4. 如果没有 ACK，依次检查 7 位地址、上拉电阻、GPIO 输入切换和器件供电。
+5. 利用逻辑分析仪或者示波器来观察 IIC 波形是否正确 ![file-20260716092636975.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716092636975.png) ![file-20260716092611076.png](https://github.com/shuai-yemao/Deep-In-Embedded/raw/5fcab575fc20cf681f3e79e163337211097c898a/%E5%BC%80%E5%8F%91%E6%9D%BF/ARM%E6%9E%B6%E6%9E%84/STM32F411CEU6/assets/%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C%E7%BC%96%E5%86%99AHT21%E7%9A%84%E6%A8%A1%E6%8B%9FIIC/file-20260716092611076.png)
+
+#### 4. 验证 AHT21 测量
+
+1. 发送 `0xAC 0x33 0x00`，每个字节后确认 ACK，然后 Stop。
+2. 等待测量完成，轮询状态字节 bit7；不要在忙状态下直接解析数据。
+3. 读取 7 字节，前 6 字节后发送 ACK，最后 1 字节后发送 NACK。
+4. 先打印原始 7 字节，再验证 CRC、位拼接和温湿度换算。
+5. 最后将底层 IIC 错误转换为 AHT21 驱动层的状态码。
+
+#### 5. 故障注入与验收
+
+分别拔掉传感器、断开上拉、将 SDA 临时拉低、发送错误地址，并制造 CRC 错误，确认程序能够超时返回。正常验收至少包括：总线空闲电平正确、Start/Stop 可识别、地址 ACK 正常、测量完成、CRC 通过、温湿度数值合理。
+
+### 常见问题
+
+| 现象            | 可能原因                           | 检查方向                            |
+| ------------- | ------------------------------ | ------------------------------- |
+| 一直收不到 ACK     | 地址位宽错误、无上拉、引脚接反                | 确认发送 `0x70/0x71`，检查总线电平         |
+| 读到的数据全为 0 或 1 | SDA 未切换为输入/释放                  | 检查 `SDA_Input_Mode()` 和 GPIO 模式 |
+| 读状态偶发失败       | 把 AHT21 状态读取误写成 repeated start | 按数据手册确认 Stop/Start 时序           |
+| 程序卡死          | 等 ACK 没有超时                     | 保留 `IIC_ACK_TIMEOUT` 保护         |
+| 温湿度异常         | 位拼接、换算或 CRC 错误                 | 先打印 7 原始字节，再逐步验证公式              |
+
+---
+
+## 📎 相关资料
+
+### 📄 代码/附件
+
+- [[AHT21数据手册]]
+- [[I2C]]
+- [[AHT21的driver文件架构设计思路]]
+
+---
+
+## 💬 Q&A
+
+> 自问自答，检验理解深度。按难度递进排列。
+
+2.
+
+### 🟢 基础
+
+#### Q 1: 为什么要用模拟 IIC?与硬件 IIC 有何区别？
+
+A 1：
+
+1. 使用 GPIO 来模拟 IIC 通信协议，任意 IO 口都可以模拟来使用 IIC 通信协议，灵活性高；但是对于 IIC 延时精度要求高的外设和需要高速 IIC 的丢包率高
+
+#### Q 2: SDA 信号建立时间是什么？上拉电阻是如何影响 SDA 和 SCL 的上拉时间？
+
+A 2：
+
+1. **SDA 信号建立时间**（t_SU;DAT）：SDA 数据线在 SCL 上升沿到来之前必须保持稳定的最短时间。I2C 规范要求：Standard Mode（100kHz）≥ 250ns，Fast Mode（400kHz）≥ 100ns。如果 SDA 还没稳定 SCL 上升沿就到了，从机采样到不确定电平，导致数据位错误。
+2. **上拉电阻影响上升时间的公式**：I2C 总线的上升时间由 RC 充电决定，核心公式为：
+
+$$
+t_{rise} = 0.8473 \times R_p \times C_b
+$$
+
+其中：$R_p$ = 上拉电阻阻值（Ω），$C_b$ = 总线寄生电容（F），$t_{rise}$ = 上升时间（s），即电压从 V_IL_max 上升到 V_IH_min 所需时间。
+
+物理模型：GPIO 开漏输出释放时 NMOS 截止，VCC 通过 Rp 向总线电容 Cb 充电，Rp 越大充电越慢，上升沿越缓。若 Rp × Cb 过大，上升时间超过规范上限（Standard Mode 1000ns / Fast Mode 300ns），从机在 SCL 高电平期间采不到有效电平。典型 3.3V 系统推荐 Rp = 4.7kΩ（标准模式）或 2.2kΩ（快速模式）。
+
+#### Q 3: IIC 总线上的动作分为哪几种？IIC 的 start 动作 SDA 和 SCL 如何变化的?
+
+A 3：
+
+1. 起始位 + 停止位 + 应答位 + 数据位
+2. SDAGPIO 设置为输出模式，释放 SCL 和 SDA，等待 SCL 信号稳定后，SDA 下拉，经过一定延时等待，SCL 下拉
+
+### 🟡 进阶
+
+#### Q 4: 为什么叫释放 SCL 和释放 SDA 信号?
+
+A 4：
+
+1. SCL 和 SDA 的 GPIO 输出模式设置为开漏输出模式，让上拉电阻来将 SCL 和 SDA 电压输出拉高，防止总线资源冲突和从机电压不同导致的短路
+2. 释放信号，即让 GPIO 硬件结构中的 NMOS 截止，让电源对电容持续充电来拉高输出电压
+
+#### Q 5: IIC 的读信号和写信号有什么区别
+
+A 5：
+
+1. 读信号：起始位 start+7 位设备地址 addr+ 读写位 w(0)+ 应答位 ack+8 位寄存器地址 reg+ 应答位 ack+ 起始位 start+7 位地址位 addr+ 读写位 r(1)+ 应答位 ack+ 接收到的 8 位寄存器内数据 readdata+ 发送无应答位 nack+ 停止位 stop
+2. 写信号：起始位 start+7 位设备地址 addr+ 读写位 w(0)+ 应答位 ack+8 位寄存器地址 reg+ 应答位 ack+ 写入的 8 位寄存器内数据 senddata+ 应答位 ack+ 停止位 stop
+
+### 🔴 困难
+
+#### Q 4
+
+A 4：
+
+---
