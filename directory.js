@@ -4,12 +4,13 @@ const directoryEmpty = document.querySelector('#directoryEmpty');
 const directorySearch = document.querySelector('#librarySearch');
 const directoryTabs = [...document.querySelectorAll('#directoryTabs .category')];
 let directoryFilter = new URLSearchParams(location.search).get('category') || 'all';
+const directoryMarkdownIndex = new Map();
 
 function renderDirectory() {
   const query = directorySearch.value.trim().toLowerCase();
   const notes = window.POWER_NOTES.filter((note) => {
     const matchesCategory = directoryFilter === 'all' || note.category === directoryFilter;
-    const haystack = `${note.title} ${note.categoryLabel} ${note.summary}`.toLowerCase();
+    const haystack = `${note.title} ${note.categoryLabel} ${note.summary} ${directoryMarkdownIndex.get(note.slug) || ''}`.toLowerCase();
     return matchesCategory && (!query || haystack.includes(query));
   });
   directoryList.innerHTML = notes.map((note) => `<a class="directory-row" href="note.html?slug=${note.slug}"><span class="directory-index">${note.number}<small>${note.categoryLabel}</small></span><span class="directory-main"><strong>${note.title}</strong><small>${note.summary}</small></span><span class="directory-date">${note.date}<br><small>${note.readTime}</small></span><span class="note-arrow">↗</span></a>`).join('');
@@ -22,3 +23,11 @@ directoryTabs.forEach((tab) => tab.addEventListener('click', () => { directoryFi
 directorySearch.addEventListener('input', renderDirectory);
 document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); directorySearch.focus(); } });
 renderDirectory();
+Promise.all(window.POWER_NOTES.map(async (note) => {
+  try {
+    const response = await fetch(note.file);
+    if (response.ok) directoryMarkdownIndex.set(note.slug, (await response.text()).toLowerCase());
+  } catch (_) {
+    // Metadata search remains available when a Markdown file cannot be fetched.
+  }
+})).then(renderDirectory);

@@ -6,6 +6,19 @@ const searchable = [...document.querySelectorAll('[data-search]')];
 const resultCount = document.querySelector('#resultCount');
 const emptyState = document.querySelector('#emptyState');
 const categoryTotals = { all: 24, embedded: 8, software: 6, tools: 5, thinking: 5 };
+const markdownSearchIndex = new Map();
+
+function loadMarkdownSearchIndex() {
+  if (!window.POWER_NOTES) return;
+  Promise.all(window.POWER_NOTES.map(async (note) => {
+    try {
+      const response = await fetch(note.file);
+      if (response.ok) markdownSearchIndex.set(note.slug, (await response.text()).toLowerCase());
+    } catch (_) {
+      // Metadata search remains available when a Markdown file cannot be fetched.
+    }
+  })).then(applyFilters);
+}
 let activeFilter = 'all';
 
 function applyFilters() {
@@ -14,7 +27,8 @@ function applyFilters() {
   let visibleNotes = 0;
   searchable.forEach((item) => {
     const matchesCategory = activeFilter === 'all' || item.dataset.category === activeFilter;
-    const matchesQuery = !query || item.dataset.search.toLowerCase().includes(query);
+    const markdownText = item.dataset.slug ? (markdownSearchIndex.get(item.dataset.slug) || '') : '';
+    const matchesQuery = !query || `${item.dataset.search} ${markdownText}`.toLowerCase().includes(query);
     const visible = matchesCategory && matchesQuery;
     item.hidden = !visible;
     if (visible) visibleNotes += 1;
@@ -50,3 +64,4 @@ if (themeToggle) themeToggle.addEventListener('click', () => {
   localStorage.setItem('power-notes-theme', body.classList.contains('dark') ? 'dark' : 'light');
 });
 applyFilters();
+loadMarkdownSearchIndex();
