@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" role="img" aria-labelledby="title desc">
+  <title id="title">Markdown 图片渲染测试图</title>
+  <desc id="desc">一个绿色背景上的 Power Notes 图形。</desc>
+  <rect width="640" height="240" fill="#273d2e"/>
+  <circle cx="120" cy="120" r="62" fill="#d17b54"/>
+  <path d="M108 88h24v64h-24zM88 108h64v24H88z" fill="#f4f0e8"/>
+  <text x="220" y="132" fill="#e9f0e7" font-family="Arial, sans-serif" font-size="42" font-weight="700">POWER NOTES</text>
+</svg>

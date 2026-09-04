@@ -21,3 +21,30 @@ python -m http.server 4173
 3. 通过 GitHub Pages 发布 `dist`。
 
 Pull Request 只执行校验，不会直接发布生产站点。
+
+## Markdown 内容能力
+
+笔记文件支持以下 fenced code block：
+
+````markdown
+```mermaid
+flowchart LR
+  A[输入] --> B[处理] --> C[输出]
+```
+
+```echarts
+{"xAxis":{"type":"category","data":["A","B"]},"yAxis":{},"series":[{"type":"bar","data":[12,20]}]}
+```
+
+```c
+int main(void) { return 0; }
+```
+````
+
+独占一行的图片使用标准 Markdown 图片语法：
+
+```markdown
+![图片说明](../assets/example.svg "可选图注")
+```
+
+Mermaid 和 ECharts 只在当前笔记确实包含对应代码块时按需加载；外部图表库加载失败时会保留源代码，避免笔记内容消失。

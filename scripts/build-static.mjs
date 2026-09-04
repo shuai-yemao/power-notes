@@ -18,7 +18,7 @@ const files = [
   'robots.txt',
   'sitemap.xml',
 ];
-const directories = ['notes'];
+const directories = ['assets', 'notes'];
 
 fs.rmSync(outputDir, { recursive: true, force: true });
 fs.mkdirSync(outputDir, { recursive: true });
@@ -28,7 +28,8 @@ for (const file of files) {
 }
 
 for (const directory of directories) {
-  fs.cpSync(path.join(projectRoot, directory), path.join(outputDir, directory), { recursive: true });
+  const sourceDir = path.join(projectRoot, directory);
+  if (fs.existsSync(sourceDir)) fs.cpSync(sourceDir, path.join(outputDir, directory), { recursive: true });
 }
 
 console.log(`Built ${files.length} files and ${directories.length} directories into ${outputDir}`);

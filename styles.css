@@ -43,3 +43,19 @@ body{font-family:"Segoe UI","Microsoft YaHei UI","Microsoft YaHei",system-ui,san
 .note-library-link.active{border-color:var(--orange);color:var(--orange)}
 .note-library-link.active strong{color:var(--orange)}
 .note-library-link.active::before{content:'→';color:var(--orange);margin-right:5px}
+
+.code-block{margin:30px 0;border:1px solid color-mix(in srgb,#e9f0e7 24%,transparent);background:var(--green-dark);overflow:hidden}
+.code-meta{display:flex;justify-content:space-between;padding:9px 14px;border-bottom:1px solid rgba(233,240,231,.2);color:#c3d5c5;font:10px 'Cascadia Mono','Consolas',monospace;letter-spacing:.08em}
+.code-block pre{margin:0;border:0;white-space:pre;tab-size:4}
+.code-token{color:#e9f0e7}.code-comment{color:#a9bea9}.code-keyword{color:#f5c49d}.code-type{color:#a9d7e8}.code-string{color:#e7d88f}.code-number{color:#d7b4e9}
+.markdown-diagram,.markdown-chart{margin:34px 0;border:1px solid var(--line);background:var(--surface);overflow:auto}
+.markdown-diagram{padding:20px;min-height:150px;display:grid;place-items:center}
+.markdown-diagram svg{display:block;max-width:100%;height:auto}
+.diagram-loading,.chart-loading{display:grid;place-items:center;min-height:150px;color:var(--muted);font:11px 'Cascadia Mono','Consolas',monospace}
+.markdown-diagram.is-fallback{display:block}.markdown-diagram.is-fallback pre{margin:0}
+.markdown-chart{overflow:hidden}.markdown-chart .chart-loading{height:340px;min-height:260px;width:100%}.markdown-chart figcaption{padding:10px 15px;border-top:1px solid var(--line);color:var(--muted);font:10px 'Cascadia Mono','Consolas',monospace}
+.markdown-chart .chart-loading.is-fallback{height:auto;display:block;padding:15px}.markdown-chart .chart-loading pre{margin:12px 0 0;max-height:360px}
+.markdown-image{margin:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}.markdown-image img{display:block;max-width:100%;height:auto;margin:auto}.markdown-image figcaption{margin-top:10px;color:var(--muted);font:10px 'Cascadia Mono','Consolas',monospace;text-align:center}.markdown-image-inline img{display:inline-block;max-width:100%;height:auto;vertical-align:middle}.markdown-media-error{display:block;border-left:3px solid var(--orange);padding:10px 14px;color:var(--orange);font:12px 'Cascadia Mono','Consolas',monospace}
+.dark .markdown-diagram,.dark .markdown-chart{background:#172019}.dark .markdown-diagram svg{filter:none}.dark .code-comment{color:#9fb7a1}.dark .code-keyword{color:#ffd0a9}.dark .code-type{color:#b8e7f7}.dark .code-string{color:#f3e8a8}
+.dark .code-block{background:#254331}.dark .code-meta{background:#1c2c21}
+@media(max-width:600px){.markdown-diagram{padding:10px}.markdown-chart .chart-loading{height:260px;min-height:220px}.code-meta{padding-inline:11px}.code-block pre{font-size:12px}}
