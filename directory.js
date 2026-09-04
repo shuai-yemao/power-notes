@@ -40,8 +40,9 @@ function renderTaxonomyNode(node, parentPath, level) {
   const expanded = hasChildren && (expandedPaths.has(key) || directoryPath === 'all' || isPathPrefix(key, directoryPath));
   const active = directoryPath === key;
   const count = countNodeNotes(currentPath);
+  const levelLabel = ['','一级','二级','三级','四级'][level] || `${level}级`;
   const childMarkup = hasChildren ? `<div class="taxonomy-children"${expanded ? '' : ' hidden'}>${children.map((child) => renderTaxonomyNode(child, currentPath, level + 1)).join('')}</div>` : '';
-  return `<div class="taxonomy-item${active ? ' active' : ''}" data-path="${escapeHtml(key)}"><div class="taxonomy-row" data-level="${level}">${hasChildren ? `<button class="taxonomy-expander" type="button" aria-expanded="${expanded}" aria-label="${expanded ? '折叠' : '展开'}${escapeHtml(node.label)}">${expanded ? '−' : '+'}</button>` : '<span class="taxonomy-expander-spacer" aria-hidden="true"></span>'}<button class="taxonomy-select${active ? ' active' : ''}" type="button" data-path="${escapeHtml(key)}"><span>${escapeHtml(node.label)}</span><b>${count}</b></button></div>${childMarkup}</div>`;
+  return `<div class="taxonomy-item${active ? ' active' : ''}" data-path="${escapeHtml(key)}"><div class="taxonomy-row" data-level="${level}">${hasChildren ? `<button class="taxonomy-expander" type="button" aria-expanded="${expanded}" aria-label="${expanded ? '折叠' : '展开'}${escapeHtml(node.label)}">${expanded ? '−' : '+'}</button>` : '<span class="taxonomy-expander-spacer" aria-hidden="true"></span>'}<button class="taxonomy-select${active ? ' active' : ''}" type="button" data-path="${escapeHtml(key)}"><span class="taxonomy-label"><small class="taxonomy-level-badge">${levelLabel}</small>${escapeHtml(node.label)}</span><b>${count}</b></button></div>${childMarkup}</div>`;
 }
 
 function renderTaxonomy() {
