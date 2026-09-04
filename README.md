@@ -1,6 +1,6 @@
 # Power Notes
 
-个人学习知识库博客，使用原生 HTML、CSS 和 JavaScript 构建，Markdown 文件作为笔记内容源。
+个人学习知识库博客，使用原生 HTML、CSS 和 JavaScript 构建，Markdown 文件作为笔记内容源。`index.html` 是独立首页，`library.html` 是知识库目录与检索页面。
 
 发布前会通过 `scripts/build-static.mjs` 生成 `dist` 静态产物目录。
 
@@ -10,7 +10,7 @@
 python -m http.server 4173
 ```
 
-然后打开 <http://127.0.0.1:4173/index.html>。
+然后打开 <http://127.0.0.1:4173/index.html> 查看首页，或打开 <http://127.0.0.1:4173/library.html> 进入知识库目录。
 
 ## CI/CD
 

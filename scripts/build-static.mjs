@@ -10,6 +10,7 @@ const files = [
   'library.html',
   'note.html',
   'app.js',
+  'home.js',
   'directory.js',
   'note.js',
   'notes.js',

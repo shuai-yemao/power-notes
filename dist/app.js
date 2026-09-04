@@ -24,7 +24,7 @@ function refreshCategoryCounts() {
 }
 
 function loadMarkdownSearchIndex() {
-  if (!window.POWER_NOTES) return;
+  if (!searchInput || !window.POWER_NOTES) return;
   Promise.all(window.POWER_NOTES.map(async (note) => {
     try {
       const response = await fetch(note.file);

@@ -3,42 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Power Notes：沉淀嵌入式、软件工程与长期学习笔记的个人知识库。">
+  <meta name="description" content="Power Notes：记录嵌入式、软件工程与长期学习的个人知识档案。">
   <meta name="theme-color" content="#f4f0e8">
-  <link rel="canonical" href="https://power-notes.mighty-vine-0515.chatgpt.site/">
-  <title>Power Notes｜个人知识库</title>
+  <link rel="canonical" href="https://shuai-yemao.github.io/power-notes/">
+  <title>Power Notes｜个人学习档案</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Power Notes 首页"><span class="brand-mark">PN</span><span><strong>POWER NOTES</strong><small>个人知识库</small></span></a>
-      <nav class="main-nav" aria-label="主导航"><a class="active" href="#library">知识库</a><a href="#recent">最近更新</a><a href="#about">关于我</a><a href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
-      <div class="header-actions"><label class="search-box" aria-label="搜索知识库"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="搜索笔记" autocomplete="off"><kbd>⌘ K</kbd></label><button class="icon-button" id="themeToggle" type="button" aria-label="切换深色模式">◐</button></div>
+      <nav class="main-nav" aria-label="主导航"><a class="active" href="index.html" aria-current="page">首页</a><a href="library.html">知识库</a><a href="#about">关于我</a><a href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
+      <div class="header-actions"><button class="icon-button" id="themeToggle" type="button" aria-label="切换深色模式">◐</button></div>
     </div>
   </header>
   <main id="main">
-    <section class="hero page-wrap" aria-labelledby="page-title"><div class="hero-copy"><p class="eyebrow">PERSONAL KNOWLEDGE ARCHIVE / 2026</p><h1 id="page-title">把学习<br><em>变成可复用的资产</em></h1><p class="hero-intro">这里记录我在嵌入式、软件工程、工具实践和生活观察中的学习轨迹。先建立地图，再深入每一条路径。</p><div class="hero-meta"><span class="status-dot"></span><span>持续整理中</span><span class="meta-divider"></span><span>最后更新：2026.09</span></div></div><div class="hero-note" aria-label="知识库说明"><span class="note-index">NOTE / 001</span><p>好的笔记不是答案的仓库，而是下一次思考可以重新出发的地方。</p><span class="note-line"></span><span class="note-sign">— power</span></div></section>
-    <section id="library" class="library page-wrap" aria-labelledby="library-title">
-      <aside class="sidebar" aria-label="知识库分类"><div class="sidebar-heading"><span>目录</span><span class="count">197 NOTES</span></div><div class="category-list" id="categoryList"><button class="category active" data-filter="all"><span>全部内容</span><b>197</b></button><button class="category" data-filter="embedded"><span>01 / 嵌入式</span><b>164</b></button><button class="category" data-filter="software"><span>02 / 软件工程</span><b>13</b></button><button class="category" data-filter="tools"><span>03 / 工具与方法</span><b>20</b></button><button class="category" data-filter="thinking"><span>04 / 思考与随笔</span><b>00</b></button></div><div class="sidebar-foot"><span class="tiny-mark">↳</span><div><p class="sidebar-foot-title">按主题浏览</p><div class="topic-links"><a href="library.html?category=embedded&amp;path=embedded/fundamentals">基础概念</a><a href="library.html?category=embedded&amp;path=embedded/architecture">工程实践</a><a href="library.html?category=tools&amp;path=tools/development-tools">工具链</a><a href="library.html?category=thinking&amp;path=thinking/retrospective">复盘随笔</a></div><p class="sidebar-foot-note">从一条路径开始，逐步建立自己的知识地图。</p></div></div></aside>
-      <div class="library-main"><div class="section-head"><div><p class="eyebrow">EXPLORE THE ARCHIVE</p><h2 id="library-title">知识库地图</h2></div><span class="result-count" id="resultCount">24 条笔记</span></div>
-        <div class="featured-grid">
-          <a class="feature-card feature-green" href="library.html?category=embedded" data-category="embedded" data-search="嵌入式 STM32 FreeRTOS 平台架构"><div class="card-top"><span class="card-kicker">01 / EMBEDDED</span><span class="arrow">↗</span></div><h3>嵌入式<br><em>Embedded Systems</em></h3><p>从 MCU、RTOS 到驱动边界，记录那些需要反复验证的工程判断。</p><div class="card-bottom"><span>164 篇笔记</span><span>进入目录 →</span></div></a>
-          <a class="feature-card feature-blue" href="library.html?category=software" data-category="software" data-search="软件工程 架构 代码质量"><div class="card-top"><span class="card-kicker">02 / SOFTWARE</span><span class="arrow">↗</span></div><h3>软件工程<br><em>Software Craft</em></h3><p>架构、协作、自动化与质量门禁，让复杂系统变得可理解。</p><div class="card-bottom"><span>13 篇笔记</span><span>进入目录 →</span></div></a>
-          <a class="feature-card feature-orange" href="library.html?category=tools" data-category="tools" data-search="工具 方法 Obsidian Git AI"><div class="card-top"><span class="card-kicker">03 / TOOLKIT</span><span class="arrow">↗</span></div><h3>工具与方法<br><em>Working Methods</em></h3><p>把日常工具变成稳定的工作流，减少重复劳动，保留思考。</p><div class="card-bottom"><span>20 篇笔记</span><span>进入目录 →</span></div></a>
-          <a class="feature-card feature-paper" href="library.html?category=thinking" data-category="thinking" data-search="思考 随笔 阅读 生活"><div class="card-top"><span class="card-kicker">04 / FIELD NOTES</span><span class="arrow">↗</span></div><h3>思考与随笔<br><em>Field Notes</em></h3><p>生活、阅读和长期主义的旁支记录，给技术之外留一点空气。</p><div class="card-bottom"><span>0 篇笔记</span><span>进入目录 →</span></div></a>
-        </div>
-        <div id="recent" class="recent-section"><div class="section-head compact"><div><p class="eyebrow">RECENTLY REVISED</p><h2>最近更新</h2></div><a href="#recent" class="text-link">查看时间线 ↗</a></div><div class="note-list" id="noteList">
-          <a class="note-row" href="note.html?slug=freertos-task-design" data-slug="freertos-task-design" data-category="embedded" data-search="FreeRTOS 任务设计 并发 实时性"><span class="note-date">09.04<br><small>2026</small></span><span class="note-type">嵌入式 / 03</span><span class="note-title">FreeRTOS 任务设计：先定义边界，再谈并发</span><span class="note-arrow">↗</span></a>
-          <a class="note-row" href="note.html?slug=platform-impl-boundary" data-slug="platform-impl-boundary" data-category="embedded" data-search="Platform 接口 Impl 分层"><span class="note-date">08.28<br><small>2026</small></span><span class="note-type">嵌入式 / 02</span><span class="note-title">Platform 与 Impl：一条不被硬件绑架的依赖方向</span><span class="note-arrow">↗</span></a>
-          <a class="note-row" href="note.html?slug=markdown-knowledge-workflow" data-slug="markdown-knowledge-workflow" data-category="tools" data-search="知识库 Markdown 工作流 写作"><span class="note-date">08.17<br><small>2026</small></span><span class="note-type">工具与方法 / 04</span><span class="note-title">把 Markdown 变成长期可维护的知识资产</span><span class="note-arrow">↗</span></a>
-          <a class="note-row" href="note.html?slug=effective-code-review" data-slug="effective-code-review" data-category="software" data-search="代码审查 软件工程 review"><span class="note-date">08.06<br><small>2026</small></span><span class="note-type">软件工程 / 01</span><span class="note-title">一次有效的代码审查，究竟应该留下什么</span><span class="note-arrow">↗</span></a>
-        </div><p class="empty-state" id="emptyState" hidden>没有找到匹配的笔记。试试其他关键词或分类。</p></div>
+    <section class="home-hero page-wrap" aria-labelledby="page-title">
+      <div class="home-hero-copy">
+        <p class="eyebrow">POWER NOTES / PERSONAL ARCHIVE</p>
+        <h1 id="page-title">让知识<br><em>成为一张地图</em></h1>
+        <p class="home-hero-intro">这是我的个人学习档案。把零散的阅读、实践与复盘，整理成可以反复进入、继续生长的路径。</p>
+        <div class="home-actions"><a class="button-link button-link-primary" href="library.html">进入知识库 <span>↗</span></a><a class="home-text-link" href="note.html?slug=freertos-task-design">阅读最新笔记 <span>→</span></a></div>
+        <div class="hero-meta"><span class="status-dot"></span><span>持续整理中</span><span class="meta-divider"></span><span>最后更新：2026.09</span></div>
+      </div>
+      <div class="home-hero-card" aria-label="知识档案概览">
+        <div class="home-card-header"><span class="note-index">ARCHIVE / 01</span><span>EST. 2026</span></div>
+        <div class="home-card-mark" aria-hidden="true">PN</div>
+        <p>先建立地图，<br><em>再深入每一条路径。</em></p>
+        <div class="home-card-rule"></div>
+        <div class="home-stats"><span><strong id="homeTotalNotes">197</strong><small>NOTES</small></span><span><strong>04</strong><small>LIBRARIES</small></span><span><strong>∞</strong><small>QUESTIONS</small></span></div>
       </div>
     </section>
-    <section id="about" class="about page-wrap"><div><p class="eyebrow">ABOUT THIS PLACE</p><h2>记录正在发生的学习，<br><em>也记录还没想明白的部分。</em></h2></div><div class="about-copy"><p>这是一个持续生长的个人知识库。每一篇笔记都尽量留下来源、上下文与验证边界，让“记住”不止于收藏。</p><a class="button-link" href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">访问我的 GitHub <span>↗</span></a></div></section>
+
+    <section class="home-entry page-wrap" aria-labelledby="entry-title">
+      <div class="home-section-label"><p class="eyebrow">START HERE</p><span>01 / 02</span></div>
+      <div class="home-entry-content"><div><h2 id="entry-title">从一个问题<br><em>开始探索</em></h2><p>知识库页面负责目录、分类和检索；首页只保留进入方式，让每次访问都有明确的下一步。</p></div><a class="home-directory-card" href="library.html"><span class="card-kicker">THE KNOWLEDGE BASE</span><strong>打开知识库地图 <span>↗</span></strong><small>按四大主题与多级目录浏览全部学习记录</small><i aria-hidden="true">→</i></a></div>
+    </section>
+
+    <section id="about" class="home-about page-wrap" aria-labelledby="about-title">
+      <div><p class="eyebrow">ABOUT THIS PLACE</p><h2 id="about-title">记录正在发生的学习，<br><em>也记录还没想明白的部分。</em></h2></div>
+      <div class="home-about-copy"><p>我主要关注嵌入式系统、软件工程和工具实践。每一篇笔记都尽量留下来源、上下文与验证边界，让“记住”不止于收藏。</p><a class="button-link" href="https://github.com/shuai-yemao" target="_blank" rel="noreferrer">访问我的 GitHub <span>↗</span></a></div>
+    </section>
   </main>
-  <footer class="site-footer page-wrap"><span>POWER NOTES / A PERSONAL ARCHIVE</span><span>© 2026</span><a href="#main">回到顶部 ↑</a></footer><script src="notes.js" defer></script><script src="deep-in-embedded.js" defer></script><script src="app.js" defer></script>
+  <footer class="site-footer page-wrap"><span>POWER NOTES / A PERSONAL ARCHIVE</span><span>© 2026</span><a href="#main">回到顶部 ↑</a></footer>
+  <script src="notes.js" defer></script><script src="deep-in-embedded.js" defer></script><script src="home.js" defer></script><script src="app.js" defer></script>
 </body>
 </html>
