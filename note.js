@@ -11,9 +11,13 @@ function inlineMarkdown(value) { return escapeHtml(value).replace(/`([^`]+)`/g, 
 function noteCategoryLabels(note) { return Array.isArray(note.categoryPath) ? window.getTaxonomyLabels(note.categoryPath) : [note.categoryLabel]; }
 function renderCategoryPath(note) { const labels = noteCategoryLabels(note); return labels.map((label, index) => { const path = note.categoryPath?.slice(0, index + 1).join('/') || note.category; return `<a href="library.html?category=${encodeURIComponent(note.category)}&path=${encodeURIComponent(path)}">${escapeHtml(label)}</a>`; }).join('<span aria-hidden="true"> / </span>'); }
 function renderLibraryNav() {
-  const otherNotes = window.POWER_NOTES.filter((note) => note.slug !== currentNote.slug);
-  noteLibraryCount.textContent = `${otherNotes.length} 篇`;
-  noteLibraryList.innerHTML = otherNotes.map((note) => { const labels = noteCategoryLabels(note); return `<a class="note-library-link" href="note.html?slug=${encodeURIComponent(note.slug)}"><span>${escapeHtml(labels.slice(-2).join(' / '))} / NOTE ${escapeHtml(note.number)}</span><strong>${escapeHtml(note.title)}</strong></a>`; }).join('');
+  const sameLibraryNotes = window.POWER_NOTES.filter((note) => note.category === currentNote.category);
+  noteLibraryCount.textContent = `${sameLibraryNotes.length} 篇`;
+  noteLibraryList.innerHTML = sameLibraryNotes.map((note) => {
+    const labels = noteCategoryLabels(note);
+    const active = note.slug === currentNote.slug;
+    return `<a class="note-library-link${active ? ' active' : ''}" href="note.html?slug=${encodeURIComponent(note.slug)}"${active ? ' aria-current="page"' : ''}><span>${escapeHtml(labels.slice(-2).join(' / '))} / NOTE ${escapeHtml(note.number)}</span><strong>${escapeHtml(note.title)}</strong></a>`;
+  }).join('');
 }
 function renderMarkdown(markdown) {
   const lines = markdown.replaceAll('\r\n','\n').split('\n');
