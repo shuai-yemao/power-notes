@@ -161,9 +161,8 @@ function renderLibraryNav() {
   const sameLibraryNotes = sameDirectoryNotes();
   noteLibraryCount.textContent = `${sameLibraryNotes.length} 篇`;
   noteLibraryList.innerHTML = sameLibraryNotes.map((note) => {
-    const labels = noteCategoryLabels(note);
     const active = note.slug === currentNote.slug;
-    return `<a class="note-library-link${active ? ' active' : ''}" href="${escapeAttribute(noteHref(note))}"${active ? ' aria-current="page"' : ''}><span>${escapeHtml(labels.slice(-2).join(' / '))} / NOTE ${escapeHtml(note.number)}</span><strong>${escapeHtml(note.title)}</strong></a>`;
+    return `<a class="note-library-link${active ? ' active' : ''}" href="${escapeAttribute(noteHref(note))}"${active ? ' aria-current="page"' : ''}><strong>${escapeHtml(note.title)}</strong><small class="note-library-summary">${escapeHtml(cleanNoteSummary(note.summary))}</small></a>`;
   }).join('');
 }
 const CALLOUT_LABELS = { note: 'NOTE', info: 'INFO', tip: 'TIP', hint: 'HINT', success: 'SUCCESS', question: 'QUESTION', warning: 'WARNING', caution: 'CAUTION', failure: 'FAILURE', danger: 'DANGER', bug: 'BUG', example: 'EXAMPLE', quote: 'QUOTE' };
