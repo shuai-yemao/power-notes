@@ -37,6 +37,28 @@ function renderLink(label, url) {
     return escapeHtml(label);
   }
 }
+function renderWikiLink(reference, label) {
+  const rawReference = String(reference ?? '').trim();
+  const target = rawReference.split('#')[0].replace(/\.md$/i, '').replaceAll('\\', '/');
+  const targetName = target.split('/').filter(Boolean).pop() || target;
+  const display = String(label || targetName || rawReference).trim();
+  const normalizedTarget = target.toLowerCase();
+  const match = window.POWER_NOTES.find((note) => {
+    const file = String(note.file || '').replaceAll('\\', '/').replace(/\.md$/i, '').toLowerCase();
+    const title = String(note.title || '').toLowerCase();
+    return title === normalizedTarget || title === targetName.toLowerCase() || file === normalizedTarget || file.endsWith('/' + normalizedTarget);
+  });
+  if (!match) return `<span class="markdown-wiki-unresolved" title="Obsidian 链接目标未导入">${escapeHtml(display)}</span>`;
+  return `<a class="markdown-wiki-link" href="note.html?slug=${encodeURIComponent(match.slug)}">${escapeHtml(display)}</a>`;
+}
+function renderWikiImage(inner) {
+  const parts = String(inner).split('|');
+  const reference = parts.shift().trim();
+  const alt = (parts.join('|').trim() || pathBasename(reference));
+  return renderImage(alt, reference);
+}
+function pathBasename(value) { return String(value || '').replaceAll('\\', '/').split('/').pop() || 'Obsidian 图片'; }
+function cleanNoteSummary(value) { return String(value ?? '').replace(/^\s*>?\s*\[![A-Za-z0-9_-]+\]\s*/i, '').trim(); }
 function renderMathPlaceholder(expression, mathExpressions, display = false) {
   const source = String(expression ?? '').trim();
   const id = `math-${display ? 'display' : 'inline'}-${mathExpressions.length}`;
@@ -48,12 +70,20 @@ let activeMathExpressions = [];
 function inlineMarkdown(value, mathExpressions = activeMathExpressions) {
   const tokens = [];
   const token = (html) => { const id = `@@POWER_TOKEN_${tokens.length}@@`; tokens.push(html); return id; };
-  let source = String(value ?? '').replace(/!\[([^\]]*)\]\(\s*(\S+?)(?:\s+["']([^"']*)["'])?\s*\)/g, (_, alt, url, title) => token(renderImage(alt, url, title)));
-  source = source.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => token(renderLink(label, url)));
+  let source = String(value ?? '').replace(/%%[\s\S]*?%%/g, '');
   source = source.replace(/`([^`]+)`/g, (_, code) => token(`<code>${escapeHtml(code)}</code>`));
+  source = source.replace(/!\[\[([^\]]+)\]\]/g, (_, inner) => token(renderWikiImage(inner)));
+  source = source.replace(/!\[([^\]]*)\]\(\s*(\S+?)(?:\s+["']([^"']*)["'])?\s*\)/g, (_, alt, url, title) => token(renderImage(alt, url, title)));
+  source = source.replace(/\[\[([^\]]+)\]\]/g, (_, inner) => { const parts = inner.split('|'); return token(renderWikiLink(parts[0], parts[1])); });
+  source = source.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => token(renderLink(label, url)));
   source = source.replace(/\\\(([\s\S]+?)\\\)|(?<!\$)\$(?!\$)([^$\n]+?)(?<!\$)\$(?!\$)/g, (_, paren, dollar) => token(renderMathPlaceholder(paren ?? dollar, mathExpressions)));
   return escapeHtml(source)
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/__([^_]+)__/g, '<strong>$1</strong>')
+    .replace(/~~([^~]+)~~/g, '<del>$1</del>')
+    .replace(/==([^=\n]+)==/g, '<mark>$1</mark>')
+    .replace(/(^|[\s(])#([A-Za-z0-9_\-\/]+)/g, '$1<span class="markdown-tag">#$2</span>')
+    .replace(/(?<![\w*])\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>')
     .replace(/@@POWER_TOKEN_(\d+)@@/g, (_, index) => tokens[Number(index)]);
 }
 const C_KEYWORDS = new Set('alignas alignof asm auto break case catch class const constexpr continue default delete do else enum explicit export extern for friend goto if inline mutable namespace new noexcept operator private protected public register reinterpret_cast requires return sizeof static static_assert static_cast struct switch template this thread_local throw try typedef typeid typename union using virtual volatile while'.split(' '));
@@ -112,15 +142,64 @@ function renderLibraryNav() {
     return `<a class="note-library-link${active ? ' active' : ''}" href="note.html?slug=${encodeURIComponent(note.slug)}"${active ? ' aria-current="page"' : ''}><span>${escapeHtml(labels.slice(-2).join(' / '))} / NOTE ${escapeHtml(note.number)}</span><strong>${escapeHtml(note.title)}</strong></a>`;
   }).join('');
 }
+const CALLOUT_LABELS = { note: 'NOTE', info: 'INFO', tip: 'TIP', hint: 'HINT', success: 'SUCCESS', question: 'QUESTION', warning: 'WARNING', caution: 'CAUTION', failure: 'FAILURE', danger: 'DANGER', bug: 'BUG', example: 'EXAMPLE', quote: 'QUOTE' };
+function stripObsidianComments(markdown) {
+  const sourceLines = String(markdown).replaceAll('\r\n', '\n').split('\n');
+  const result = []; let inCode = false; let codeFence = ''; let inComment = false;
+  sourceLines.forEach((line) => {
+    const fenceMatch = line.match(/^\s*(`{3,}|~{3,})/);
+    if (fenceMatch) {
+      if (!inCode) { inCode = true; codeFence = fenceMatch[1][0]; }
+      else if (fenceMatch[1][0] === codeFence) { inCode = false; codeFence = ''; }
+      result.push(line); return;
+    }
+    if (inCode) { result.push(line); return; }
+    let rest = line; let output = '';
+    while (rest.length) {
+      if (inComment) {
+        const end = rest.indexOf('%%');
+        if (end < 0) { rest = ''; break; }
+        rest = rest.slice(end + 2); inComment = false; continue;
+      }
+      const start = rest.indexOf('%%');
+      if (start < 0) { output += rest; rest = ''; break; }
+      output += rest.slice(0, start); rest = rest.slice(start + 2); inComment = true;
+    }
+    result.push(output);
+  });
+  return result;
+}
+function tableCells(line) { return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim()); }
+function isTableSeparator(line) { return /^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line); }
+function renderTable(rows) {
+  if (!rows.length) return '';
+  const header = rows[0].map((cell) => `<th scope="col">${inlineMarkdown(cell)}</th>`).join('');
+  const body = rows.slice(1).map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`).join('');
+  return `<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr>${header}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+function renderCallout(callout) {
+  const type = String(callout.type || 'note').toLowerCase();
+  const label = CALLOUT_LABELS[type] || type.toUpperCase();
+  const title = callout.title.trim() || label;
+  const body = []; let list = [];
+  const flush = () => { if (list.length) { body.push(`<ul>${list.join('')}</ul>`); list = []; } };
+  callout.lines.forEach((line) => {
+    if (!line.trim()) { flush(); return; }
+    if (/^- /.test(line)) { list.push(`<li>${inlineMarkdown(line.slice(2))}</li>`); return; }
+    flush(); body.push(`<p>${inlineMarkdown(line)}</p>`);
+  });
+  flush();
+  return `<aside class="markdown-callout callout-${escapeAttribute(type)}"><div class="callout-title"><span>${escapeHtml(label)}</span><strong>${inlineMarkdown(title)}</strong></div><div class="callout-body">${body.join('')}</div></aside>`;
+}
 function renderMarkdown(markdown) {
-  const lines = markdown.replaceAll('\r\n','\n').split('\n');
+  const lines = stripObsidianComments(markdown);
   const output = [];
   const headings = [];
   const diagrams = [];
   const charts = [];
   const math = [];
   activeMathExpressions = math;
-  let inCode = false; let codeLines = []; let listItems = [];
+  let inCode = false; let codeFence = ''; let codeLines = []; let listItems = []; let activeCallout = null;
   let codeLanguage = 'text';
   let inMath = false; let mathLines = []; let mathDelimiter = '';
   const flushList = () => { if (listItems.length) { output.push(`<ul>${listItems.join('')}</ul>`); listItems = []; } };
@@ -140,25 +219,49 @@ function renderMarkdown(markdown) {
     } else {
       output.push(renderCode(source, normalized));
     }
-    codeLines = []; codeLanguage = 'text'; inCode = false;
+    codeLines = []; codeLanguage = 'text'; codeFence = ''; inCode = false;
   };
-  lines.forEach((line) => {
-    if (line.startsWith('```')) { flushList(); if (inCode) flushCode(); else { inCode = true; codeLanguage = line.slice(3).trim().toLowerCase() || 'text'; } return; }
-    if (inCode) { codeLines.push(line); return; }
+  const flushCallout = () => { if (activeCallout) { flushList(); output.push(renderCallout(activeCallout)); activeCallout = null; } };
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
+    const fenceMatch = line.match(/^\s*(`{3,}|~{3,})(.*)$/);
+    if (fenceMatch) {
+      if (!inCode) { flushCallout(); flushList(); inCode = true; codeFence = fenceMatch[1][0]; codeLanguage = fenceMatch[2].trim().toLowerCase() || 'text'; continue; }
+      if (fenceMatch[1][0] === codeFence) { flushCode(); continue; }
+    }
+    if (inCode) { codeLines.push(line); continue; }
     const trimmed = line.trim();
-    if (inMath) { if (trimmed === mathDelimiter) flushMath(); else mathLines.push(line); return; }
-    if (trimmed === '$$' || trimmed === '\\[') { flushList(); inMath = true; mathDelimiter = trimmed === '$$' ? '$$' : '\\]'; mathLines = []; return; }
+    if (inMath) { if (trimmed === mathDelimiter) flushMath(); else mathLines.push(line); continue; }
+    if (activeCallout) {
+      const continuation = line.match(/^>\s?(.*)$/);
+      if (continuation) { activeCallout.lines.push(continuation[1]); continue; }
+      flushCallout();
+    }
+    const calloutStart = line.match(/^>\s*\[!([A-Za-z0-9_-]+)\](?:\s*(.*))?$/i);
+    if (calloutStart) { flushList(); activeCallout = { type: calloutStart[1], title: calloutStart[2] || '', lines: [] }; continue; }
+    if (trimmed === '$$' || trimmed === '\\[') { flushList(); inMath = true; mathDelimiter = trimmed === '$$' ? '$$' : '\\]'; mathLines = []; continue; }
     const singleMath = trimmed.match(/^\$\$([\s\S]+)\$\$$/) || trimmed.match(/^\\\[([\s\S]+)\\\]$/);
-    if (singleMath) { flushList(); output.push(renderMathPlaceholder(singleMath[1], math, true)); return; }
+    if (singleMath) { flushList(); output.push(renderMathPlaceholder(singleMath[1], math, true)); continue; }
+    if (line.includes('|') && lineIndex + 1 < lines.length && isTableSeparator(lines[lineIndex + 1])) {
+      flushList(); const rows = [tableCells(line)]; lineIndex += 2;
+      while (lineIndex < lines.length && lines[lineIndex].includes('|') && lines[lineIndex].trim()) { rows.push(tableCells(lines[lineIndex])); lineIndex += 1; }
+      lineIndex -= 1; output.push(renderTable(rows)); continue;
+    }
     const imageMatch = line.match(/^\s*!\[([^\]]*)\]\(\s*(\S+?)(?:\s+["']([^"']*)["'])?\s*\)\s*$/);
-    if (imageMatch) { flushList(); output.push(renderImage(imageMatch[1], imageMatch[2], imageMatch[3], true)); return; }
-    if (/^#{1,3} /.test(line)) { flushList(); const level = line.match(/^#+/)[0].length; const text = line.replace(/^#+ /,''); const id = `section-${headings.length}`; headings.push({ id, text, level }); output.push(`<h${level} id="${id}">${inlineMarkdown(text)}</h${level}>`); return; }
-    if (line.startsWith('> ')) { flushList(); output.push(`<blockquote>${inlineMarkdown(line.slice(2))}</blockquote>`); return; }
-    if (/^- /.test(line)) { listItems.push(`<li>${inlineMarkdown(line.slice(2))}</li>`); return; }
-    if (!line.trim()) { flushList(); return; }
+    if (imageMatch) { flushList(); output.push(renderImage(imageMatch[1], imageMatch[2], imageMatch[3], true)); continue; }
+    if (/^#{1,6} /.test(line)) { flushList(); const level = line.match(/^#+/)[0].length; const text = line.replace(/^#+\s+/,''); const id = `section-${headings.length}`; headings.push({ id, text, level }); output.push(`<h${level} id="${id}">${inlineMarkdown(text)}</h${level}>`); continue; }
+    if (/^\s*([-*_])(?:\s*\1){2,}\s*$/.test(line)) { flushList(); output.push('<hr class="markdown-rule">'); continue; }
+    if (line.startsWith('> ')) { flushList(); output.push(`<blockquote>${inlineMarkdown(line.slice(2))}</blockquote>`); continue; }
+    if (/^- /.test(line)) {
+      const task = line.match(/^- \[([ xX])\]\s+(.*)$/);
+      if (task) listItems.push(`<li class="task-item"><input type="checkbox" disabled${task[1].toLowerCase() === 'x' ? ' checked' : ''} aria-label="${task[1].toLowerCase() === 'x' ? '已完成' : '未完成'}"><span>${inlineMarkdown(task[2])}</span></li>`);
+      else listItems.push(`<li>${inlineMarkdown(line.slice(2))}</li>`);
+      continue;
+    }
+    if (!line.trim()) { flushList(); continue; }
     flushList(); output.push(`<p>${inlineMarkdown(line)}</p>`);
-  });
-  flushList(); flushCode(); flushMath();
+  }
+  flushCallout(); flushList(); flushCode(); flushMath();
   activeMathExpressions = [];
   noteToc.innerHTML = headings.filter((item) => item.level > 1).map((item) => `<a class="note-outline-link level-${item.level}" href="#${item.id}">${escapeHtml(item.text)}</a>`).join('');
   return { html: output.join(''), diagrams, charts, math };
@@ -276,4 +379,4 @@ function enhanceMarkdown(renderResult) {
 renderLibraryNav();
 noteCrumb.textContent = currentNote.title;
 document.title = `${currentNote.title}｜Power Notes`;
-fetch(currentNote.file).then((response) => { if (!response.ok) throw new Error('Markdown file not found'); return response.text(); }).then((markdown) => { const renderResult = renderMarkdown(markdown); noteBody.innerHTML = `<div class="note-header"><p class="eyebrow">${currentNote.categoryLabel.toUpperCase()} / NOTE ${currentNote.number}</p><div class="note-date-line">${currentNote.date} · ${currentNote.readTime.toUpperCase()}</div><div class="note-category-path" id="noteCategoryPath" aria-label="笔记分类路径">${renderCategoryPath(currentNote)}</div><h1>${escapeHtml(currentNote.title)}</h1><p class="note-lead">${escapeHtml(currentNote.summary)}</p></div>${renderResult.html}<div class="article-end"><span>本文由 Markdown 源文件驱动</span><a href="library.html?category=${encodeURIComponent(currentNote.category)}&path=${encodeURIComponent(currentNote.category)}">继续浏览 ${escapeHtml(currentNote.categoryLabel)} →</a></div>`; enhanceMarkdown(renderResult); }).catch((error) => { noteBody.innerHTML = `<div class="empty-state">笔记暂时无法加载：${error.message}</div>`; });
+fetch(currentNote.file).then((response) => { if (!response.ok) throw new Error('Markdown file not found'); return response.text(); }).then((markdown) => { const renderResult = renderMarkdown(markdown); noteBody.innerHTML = `<div class="note-header"><p class="eyebrow">${currentNote.categoryLabel.toUpperCase()} / NOTE ${currentNote.number}</p><div class="note-date-line">${currentNote.date} · ${currentNote.readTime.toUpperCase()}</div><div class="note-category-path" id="noteCategoryPath" aria-label="笔记分类路径">${renderCategoryPath(currentNote)}</div><h1>${escapeHtml(currentNote.title)}</h1><p class="note-lead">${escapeHtml(cleanNoteSummary(currentNote.summary))}</p></div>${renderResult.html}<div class="article-end"><span>本文由 Markdown 源文件驱动</span><a href="library.html?category=${encodeURIComponent(currentNote.category)}&path=${encodeURIComponent(currentNote.category)}">继续浏览 ${escapeHtml(currentNote.categoryLabel)} →</a></div>`; enhanceMarkdown(renderResult); }).catch((error) => { noteBody.innerHTML = `<div class="empty-state">笔记暂时无法加载：${error.message}</div>`; });
