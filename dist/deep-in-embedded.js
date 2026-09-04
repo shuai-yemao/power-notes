@@ -3,10 +3,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-2c7a0cdd",
     "title": "嵌入式技术栈",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-abc1b455"
     ],
     "number": "100",
@@ -23,10 +23,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-3a3fc5f8",
     "title": "芯片架构学习路线图",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-abc1b455"
     ],
     "number": "101",
@@ -43,10 +43,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-01-cmake-keil-fd61faf2",
     "title": "CMake 从零入门（Keil 用户版）",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -64,10 +64,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-02-cmake-c6057cc9",
     "title": "CMake 嵌入式工程改造设计方案",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -85,10 +85,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-03-step1-dd15ad36",
     "title": "Step 1: 环境检查与首次编译",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -106,10 +106,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-04-step2-6-cmake-28c682be",
     "title": "Step 26: 完整 CMake 工程改造",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -127,10 +127,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-05-elog-be1d6962",
     "title": "05 — elog 日志输出与调试符号修复",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -148,10 +148,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-cmake-d32bb10e",
     "title": "多芯片 CMake 开发指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -169,10 +169,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-cmake-d0c5bccd",
     "title": "CMake 嵌入式开发指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -190,10 +190,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-cmake-41b16b25",
     "title": "CMake 项目文件管理指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -211,10 +211,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-cmake-d7133209",
     "title": "CMake 嵌入式项目文件结构详解",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -232,10 +232,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmake-cmake-ide-a6b5d8b3",
     "title": "CMake 与传统 IDE 开发：优缺点对比",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "cmake"
     ],
@@ -253,10 +253,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-git-fbc28314",
     "title": "创建新仓库命令",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "git"
     ],
@@ -274,10 +274,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-git-git-b1c9ea3c",
     "title": "git教程",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "git"
     ],
@@ -295,10 +295,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-git-git-75105f95",
     "title": "git无法上传网络问题",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "git"
     ],
@@ -316,10 +316,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-understand-95271f67",
     "title": "安装教程",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "understand"
     ],
@@ -337,10 +337,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-understand-6c4f788a",
     "title": "初步入门使用教程",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "understand"
     ],
@@ -358,10 +358,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-vscode-8828134f",
     "title": "未命名",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "tools",
+    "categoryLabel": "工具与方法",
     "categoryPath": [
-      "deep-in-embedded",
+      "tools",
       "node-16b7dcaf",
       "vscode"
     ],
@@ -379,10 +379,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-freertos-freertos-8cd60060",
     "title": "STM32F411CEU6 FreeRTOS 移植指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-7c30099b",
       "freertos"
     ],
@@ -400,10 +400,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-freertos-stm32freertosbug-9e2dd286",
     "title": "STM32FreeRTOSbug大全",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-7c30099b",
       "freertos"
     ],
@@ -421,10 +421,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-ap3216c-0644daf5",
     "title": "AP3216C",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-23362670"
     ],
@@ -442,10 +442,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-dht11-711b7fd4",
     "title": "DHT11",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-23362670"
     ],
@@ -463,10 +463,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-ds18b20-5bc9481c",
     "title": "DS18B20",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-23362670"
     ],
@@ -484,10 +484,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-mpu6050-4627a779",
     "title": "MPU6050",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-23362670"
     ],
@@ -505,10 +505,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-qma6100p-eafaea0a",
     "title": "QMA6100P",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-23362670"
     ],
@@ -526,10 +526,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-rom-eeprom-24c02-2bd80888",
     "title": "24C02",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-183063f9",
       "rom",
@@ -549,10 +549,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-794535fb",
     "title": "编码电机",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-758b20db"
     ],
@@ -570,10 +570,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-c8fcfecd",
     "title": "触摸屏",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-16a8ec9f"
     ],
@@ -591,10 +591,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-fa110104",
     "title": "串口屏",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-16a8ec9f"
     ],
@@ -612,10 +612,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-oled-e7b20077",
     "title": "OLED",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-16a8ec9f"
     ],
@@ -633,10 +633,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-rgb-lcd-a0573575",
     "title": "RGBLCD",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-16a8ec9f"
     ],
@@ -654,10 +654,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-tft-lcd-b0a7e620",
     "title": "TFTLCD",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6",
       "node-16a8ec9f"
     ],
@@ -675,10 +675,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-xl9555-08da5ff8",
     "title": "XL9555",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-1824d8b6"
     ],
     "number": "132",
@@ -695,10 +695,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-fbf8988e",
     "title": "队列和队列集",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -718,10 +718,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-api-643325a3",
     "title": "计数信号量的实验和API",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -741,10 +741,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-cf1b5ada",
     "title": "静态创建和动态创建任务",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -764,10 +764,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-b1896582",
     "title": "任务函数的创建",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -787,10 +787,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-af47d199",
     "title": "任务通知",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -810,10 +810,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-0ed79cec",
     "title": "任务状态转换",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -833,10 +833,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-bb5c1e32",
     "title": "软件定时器",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -856,10 +856,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-255ee7dd",
     "title": "软件定时器的实验",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -879,10 +879,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-dde5cad7",
     "title": "上下文切换",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -902,10 +902,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-8b6d0863",
     "title": "什么是实时操作系统",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -925,10 +925,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-377c6a64",
     "title": "事件组",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -948,10 +948,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-328604c9",
     "title": "线程",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -971,10 +971,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-74728808",
     "title": "信号量",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -994,10 +994,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-api-44d36ad9",
     "title": "信号量互斥实验和API",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1017,10 +1017,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-api-c3fd9b08",
     "title": "信号量同步实验和API",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1040,10 +1040,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-b20cec4e",
     "title": "修改和获取任务优先级",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1063,10 +1063,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-d0563f15",
     "title": "中断",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1086,10 +1086,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-32f103c8t6-stm32f103c8t6freertos-cubemx-freertos-d2650dbb",
     "title": "cubemx创建FreeRTOS工程",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1109,10 +1109,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-freertos-2a3a1c93",
     "title": "FreeRTOS的命名规则",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1132,10 +1132,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-32f103c8t6-stm32f103c8t6freertos-gatekeeper-task-c3863622",
     "title": "Gatekeeper Task",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1155,10 +1155,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-tm32f103c8t6-stm32f103c8t6freertos-isr-busy-wait-d79f683f",
     "title": "ISR与Busy Wait",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1178,10 +1178,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-rm-stm32f103c8t6-stm32f103c8t6freertos-tick-hook-55bf5a00",
     "title": "tick hook",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1201,10 +1201,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f103c8t6-stm32f103c8t6freertos-tick-3258527c",
     "title": "tick溢出问题",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1224,10 +1224,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-m-stm32f103c8t6-stm32f103c8t6freertos-vtaskdelay-1f72b8de",
     "title": "vTaskDelay积累误差",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f103c8t6",
@@ -1247,10 +1247,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-01-30fc3683",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1269,10 +1269,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-02-os-osal-5772998e",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1291,10 +1291,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-03-bsp-adapter-e967b074",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1313,10 +1313,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-04-app-38d396e2",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1335,10 +1335,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-05-0965e7c8",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1357,10 +1357,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-debug-e3bbe33b",
     "title": "初级debug和嵌入式代码规范",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1379,10 +1379,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-dma-767e0b71",
     "title": "串口接收不定长数据并结合DMA实现环形缓冲区",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1401,10 +1401,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-ttl-da384086",
     "title": "串口通信与TTL电平协议",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1423,10 +1423,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-f20ce03f",
     "title": "串口自定义协议设计",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1445,10 +1445,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-374b3fd6",
     "title": "大厂项目开发流程和项目文件模板",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1467,10 +1467,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-713831b3",
     "title": "队列的概念和使用",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1489,10 +1489,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-aht21-iic-be0fdbd0",
     "title": "根据数据手册编写AHT21的模拟IIC",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1511,10 +1511,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-162ac75e",
     "title": "函数调用栈和栈回溯定位故障",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1533,10 +1533,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-96ed7ee9",
     "title": "互斥锁与二值信号量及其邮箱",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1555,10 +1555,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-eb584509",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1577,10 +1577,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-3422d5ef",
     "title": "局部焊接测试和电路基础知识",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1599,10 +1599,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-b742b220",
     "title": "离线断点",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1621,10 +1621,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-6e42afc4",
     "title": "零拷贝和二级指针",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1643,10 +1643,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-aes-rsa-c752cbe5",
     "title": "密码学安全应用AES与RSA",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1665,10 +1665,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-breadcrumb-4b9f125b",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1687,10 +1687,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-spi-d6ffd7ff",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1709,10 +1709,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-031b772f",
     "title": "嵌入式调试与问题定位方法",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1731,10 +1731,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-2792a966",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1753,10 +1753,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-eeaec81d",
     "title": "嵌入式项目代码架构与分层",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1775,10 +1775,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-5e80d77a",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1797,10 +1797,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-835f456c",
     "title": "时钟系统与定时器",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1819,10 +1819,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-f3c87bdb",
     "title": "实现重定位",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1841,10 +1841,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-626e5299",
     "title": "include <stdio.h",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1863,10 +1863,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-32f411ceu6-flash-sfud-fal-flashdb-fatfs-ota-lvgl-42172af0",
     "title": "外部flash中SFUD，FAL，FlashDB,FATFS以及OTA和LVGL资源的统筹方案",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1885,10 +1885,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-a41b3e91",
     "title": "系统总线",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1907,10 +1907,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-5e720845",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1929,10 +1929,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-7df6282e",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1951,10 +1951,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-e952c334",
     "title": "中断设计和应用",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1973,10 +1973,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-0d4ad85e",
     "title": "状态机思想与按键驱动",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -1995,10 +1995,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-adc-dma-7b1cbcda",
     "title": "ADC采集与DMA传输",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2017,10 +2017,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-aht21-2452097c",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2039,10 +2039,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-aht21-driver-371e668c",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2061,10 +2061,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-aht21-handler-5e755d3a",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2083,10 +2083,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-bootloader-86f0980d",
     "title": "Bootloader的概念及其应用",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2105,10 +2105,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-cmbacktrace-a52871a4",
     "title": "Cmbacktrace库",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2127,10 +2127,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-crc-a0ac880e",
     "title": "CRC校验",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2149,10 +2149,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-cst816t-driver-7c749f78",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2171,10 +2171,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-cst816t-handle-602a1ff1",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2193,10 +2193,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-dma-adc-03435d6b",
     "title": "DMA 双缓冲模式在串口与 ADC 中的实际应用",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2215,10 +2215,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-easylog-rtt-806fec09",
     "title": "EasylogRTT日志",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2237,10 +2237,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-jlink-3f74fd6a",
     "title": "Jlink下载原理及其应用",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2259,10 +2259,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-led-6df92966",
     "title": "LED与桥接模式",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2281,10 +2281,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-mpu6050-driver-7152054a",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2303,10 +2303,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-mpu6050-handle-b2599bc6",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2325,10 +2325,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-os-ec2604de",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2347,10 +2347,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-ota-6cf3d310",
     "title": "OTA加密升级框架",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2369,10 +2369,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-ozone-bug-0af8e807",
     "title": "Ozone调试工具的使用与Bug现场快照保存",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2391,10 +2391,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-sct-ebb20b05",
     "title": "SCT分散加载符文件",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2413,10 +2413,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-st7789-324f7e50",
     "title": "ST7789 驱动四层架构：从 \" 一把梭 \" 到 \" 能换板子 \"",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2435,10 +2435,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-st7789-389160b2",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2457,10 +2457,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-stm32-gpio-0d9fb414",
     "title": "STM32的GPIO原理和模式",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2479,10 +2479,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-swv-da799fff",
     "title": "SWV工作原理",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2501,10 +2501,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-systemview-fe06e0d8",
     "title": "Systemview的移植和使用",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2523,10 +2523,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-volatile-558e9c9b",
     "title": "Volatile的重要性",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2545,10 +2545,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-w25qxx-driver-93b10b4e",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2567,10 +2567,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-w25qxx-handler-9bceb56f",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2589,10 +2589,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-arm-stm32f411ceu6-wdg-4cfa57ab",
     "title": "WDG看门狗",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "arm",
       "stm32f411ceu6"
@@ -2611,10 +2611,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-736e928d",
     "title": "内部温度传感器",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2633,10 +2633,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-adc-c8365c3e",
     "title": "ADC",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2655,10 +2655,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-esp-timer-52-3288d4fd",
     "title": "ESPTIMER（一组 52 位系统定时器）",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2677,10 +2677,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-exit-0555e8ae",
     "title": "EXIT",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2699,10 +2699,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-gptimer-b67b3c1d",
     "title": "GPTIMER(两组通用定时器)",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2721,10 +2721,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-iic-1f4cceae",
     "title": "IIC",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2743,10 +2743,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-infrared-b0e13c86",
     "title": "INFRARED",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2765,10 +2765,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-key-59108527",
     "title": "KEY",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2787,10 +2787,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-led-ab113493",
     "title": "LED",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2809,10 +2809,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-pwm-f759070e",
     "title": "PWM",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2831,10 +2831,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-rgb-lcd-e557c9e0",
     "title": "RGBLCD",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2853,10 +2853,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-rng-d2f62840",
     "title": "RNG",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2875,10 +2875,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-rtc-9d774983",
     "title": "RTC",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2897,10 +2897,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-spi-a2c9adba",
     "title": "SPI",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2919,10 +2919,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-uart-f1fdec0b",
     "title": "UART",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2941,10 +2941,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-risc-v-esp32-s3-esp-idf-watch-dog-781afc2f",
     "title": "WATCHDOG",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-3177d046",
       "risc-v",
       "esp32-s3-esp-idf"
@@ -2963,10 +2963,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-0491ae8d",
     "title": "1.BSP 层",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38"
     ],
     "number": "235",
@@ -2983,10 +2983,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-9a08eea5",
     "title": "一、问题的描述",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38"
     ],
     "number": "236",
@@ -3003,10 +3003,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded--dma-m-arch-ope-2026-06-06-segger-systemview-rtt-1497b103",
     "title": "项目: 16ADCDMAMArchope | 问题: SEGGER SystemView 无法找到 RTT 控制块",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "16-adc-dma-m-arch-ope"
@@ -3025,10 +3025,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-yaoxiang-2026-05-05-usart2-dma-idle-tx-4eea1fc1",
     "title": "USART2 DMA 接收缓冲区全 0x00——IDLE 标志预设 + TX 硬件故障",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "yaoxiang"
@@ -3047,10 +3047,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-yaoxiang-2026-05-09-dht22-89d26bba",
     "title": "项目: 药箱 YaoXiang | 问题: DHT22 温湿度传感器读取数据异常",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "yaoxiang"
@@ -3069,10 +3069,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-aht21-handler-bug-11744745",
     "title": "一、问题的描述",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854"
     ],
@@ -3090,10 +3090,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-aht21-bug-61661a52",
     "title": "一、问题的描述",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854"
     ],
@@ -3111,10 +3111,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-stm32f103-uart-2026-05-03-2ec4c4cf",
     "title": "项目: STM32F103UART | 问题: 串口发送首字节丢失",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "stm32f103-uart"
@@ -3133,10 +3133,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded--bsp-flash-2026-07-22-aht21-vtaskdelay-hardfault-4aaa42b1",
     "title": "项目: STM32F411CEU6BSPFlash | 问题: AHT21自检超时且vTaskDelay导致HardFault",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "stm32f411ceu6-bsp-flash"
@@ -3155,10 +3155,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-2f411ceu6-bsp-flash-2026-07-22-j-link-gdb-server-ae840ec0",
     "title": "项目: STM32F411CEU6BSPFlash | 问题: JLink GDB Server 异常退出导致芯片被擦空",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "stm32f411ceu6-bsp-flash"
@@ -3177,10 +3177,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-uart-printf-v1-2026-05-24-8a5ee60b",
     "title": "项目: UARTPRINTFV1 | 问题: 流水线功能验证测试",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38",
       "node-96e73854",
       "uart-printf-v1"
@@ -3199,10 +3199,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-ec-s100-stm32f411-copy-5bd3b8c7",
     "title": "1. 文档概述",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "software",
+    "categoryLabel": "软件工程",
     "categoryPath": [
-      "deep-in-embedded",
+      "software",
       "node-2e1a2e38"
     ],
     "number": "246",
@@ -3219,10 +3219,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-http-1ac5a4f9",
     "title": "HTTP",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5b135aa3"
     ],
@@ -3240,10 +3240,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-tcp-f0349dcd",
     "title": "TCP",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5b135aa3"
     ],
@@ -3261,10 +3261,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-udp-d1835683",
     "title": "UDP",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5b135aa3"
     ],
@@ -3282,10 +3282,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-4g-923c338b",
     "title": "4G",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3303,10 +3303,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-note-6c12b42b",
     "title": "星闪",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3324,10 +3324,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lan-59ba9d40",
     "title": "以太网（LAN）",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3345,10 +3345,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-ble-e0022834",
     "title": "BLE",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3366,10 +3366,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-gps-1d1a5635",
     "title": "GPS",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3387,10 +3387,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lora-5873f623",
     "title": "LORA",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3408,10 +3408,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-nfc-e7d319f6",
     "title": "NFC",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3429,10 +3429,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-wifi-8ec5fa09",
     "title": "WIFI",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3450,10 +3450,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-zigbee-2e0fbf9c",
     "title": "ZIGBEE",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-5a9ba8e5"
     ],
@@ -3471,10 +3471,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-coap-9465f085",
     "title": "CoAP",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-f7d1af06"
     ],
@@ -3492,10 +3492,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-modbus-8786d478",
     "title": "Modbus",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-f7d1af06"
     ],
@@ -3513,10 +3513,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-mqtt-24f57982",
     "title": "MQTT",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-f7d1af06"
     ],
@@ -3534,10 +3534,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-ymodem-cff38e6a",
     "title": "Ymodem",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-f7d1af06"
     ],
@@ -3555,10 +3555,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-can-8fc9d130",
     "title": "CAN",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3576,10 +3576,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-i2c-56e6046f",
     "title": "I2C",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3597,10 +3597,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-i2s-7419dadf",
     "title": "I2S",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3618,10 +3618,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-sdio-d0df0785",
     "title": "SDIO",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3639,10 +3639,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-spi-4ea766bc",
     "title": "SPI",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3660,10 +3660,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-usat-04536d37",
     "title": "USAT",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3681,10 +3681,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-usb-175958c0",
     "title": "USB",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-0a5f360e",
       "node-9ce91c03"
     ],
@@ -3702,10 +3702,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-cmbacktrace-cmbacktrace-f94e97bb",
     "title": "CmBacktrace 库原理与实践",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "cmbacktrace"
     ],
@@ -3723,10 +3723,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-fatfs-fatfs-aae70daf",
     "title": "FATFS 嵌入式使用手册",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "fatfs"
     ],
@@ -3744,10 +3744,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-fatfs-fatfs-d63f82cd",
     "title": "FATFS 嵌入式移植指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "fatfs"
     ],
@@ -3765,10 +3765,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-flashdb-flashdb-ed9ac3de",
     "title": "FlashDB 嵌入式使用手册",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "flashdb"
     ],
@@ -3786,10 +3786,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-flashdb-flashdb-2ae70149",
     "title": "FlashDB 嵌入式移植指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "flashdb"
     ],
@@ -3807,10 +3807,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-letter-shell-letter-shell-a2e24e90",
     "title": "lettershell 嵌入式使用手册",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "letter-shell"
     ],
@@ -3828,10 +3828,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-letter-shell-letter-shell-ca5030f2",
     "title": "lettershell 嵌入式移植指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "letter-shell"
     ],
@@ -3849,10 +3849,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-02-gui-guider-f286f96e",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3870,10 +3870,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-03-lvgl-adapter-b293b551",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3891,10 +3891,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-04-lvgl-d9ee19ba",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3912,10 +3912,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-05-lv-obj-7976e175",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3933,10 +3933,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-06-lvgl-3222bb20",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3954,10 +3954,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-07-lvgl-fd244352",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3975,10 +3975,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-lvgl-ui-d0ea6523",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -3996,10 +3996,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-lv-button-70a97c6c",
     "title": "📖 引言",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl",
       "node-7359f06c"
@@ -4018,10 +4018,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-gui-guider-stm32f411ceu6-09ed035d",
     "title": "GUI Guider 移植指南（STM32F411CEU6 + LVGL 9）",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -4039,10 +4039,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-lvgl-lvgl-f9f60ab3",
     "title": "LVGL 移植指南（STM32F411CEU6 + FreeRTOS）",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "lvgl"
     ],
@@ -4060,10 +4060,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-segger-systemview-segger-systemview-e5654bf6",
     "title": "SEGGER SystemView 移植与使用指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "segger-systemview"
     ],
@@ -4081,10 +4081,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-sfud-sfud-006ac5f5",
     "title": "SFUD 嵌入式使用手册",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "sfud"
     ],
@@ -4102,10 +4102,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-sfud-sfud-e3f8cab5",
     "title": "SFUD 串行 Flash 通用驱动库移植与使用指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "sfud"
     ],
@@ -4123,10 +4123,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-unity-unity-6c3de9f7",
     "title": "Unity 嵌入式使用手册",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "unity"
     ],
@@ -4144,10 +4144,10 @@ window.POWER_IMPORTED_NOTES = [
   {
     "slug": "deep-in-embedded-unity-unity-0fdda0ba",
     "title": "Unity C 单元测试框架移植与使用指南",
-    "category": "deep-in-embedded",
-    "categoryLabel": "Deep-In-Embedded",
+    "category": "embedded",
+    "categoryLabel": "嵌入式",
     "categoryPath": [
-      "deep-in-embedded",
+      "embedded",
       "node-39231438",
       "unity"
     ],
@@ -4164,244 +4164,263 @@ window.POWER_IMPORTED_NOTES = [
   }
 ];
 window.POWER_IMPORTED_TAXONOMY = {
-  "id": "deep-in-embedded",
-  "label": "Deep-In-Embedded",
-  "children": [
-    {
-      "id": "node-abc1b455",
-      "label": "笔记系统",
-      "children": []
-    },
-    {
-      "id": "node-16b7dcaf",
-      "label": "必备开发工具",
-      "children": [
-        {
-          "id": "cmake",
-          "label": "cmake",
-          "children": []
-        },
-        {
-          "id": "git",
-          "label": "git",
-          "children": []
-        },
-        {
-          "id": "understand",
-          "label": "understand",
-          "children": []
-        },
-        {
-          "id": "vscode",
-          "label": "vscode",
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "node-7c30099b",
-      "label": "操作系统",
-      "children": [
-        {
-          "id": "freertos",
-          "label": "FreeRTOS",
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "node-1824d8b6",
-      "label": "常用驱动",
-      "children": [
-        {
-          "id": "node-23362670",
-          "label": "传感器",
-          "children": []
-        },
-        {
-          "id": "node-183063f9",
-          "label": "存储类",
-          "children": [
-            {
-              "id": "rom",
-              "label": "ROM",
-              "children": [
-                {
-                  "id": "eeprom",
-                  "label": "EEPROM",
-                  "children": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "node-758b20db",
-          "label": "电机",
-          "children": []
-        },
-        {
-          "id": "node-16a8ec9f",
-          "label": "显示屏",
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "node-3177d046",
-      "label": "开发板",
-      "children": [
-        {
-          "id": "arm",
-          "label": "ARM架构",
-          "children": [
-            {
-              "id": "stm32f103c8t6",
-              "label": "STM32F103C8T6",
-              "children": [
-                {
-                  "id": "stm32f103c8t6freertos",
-                  "label": "STM32F103C8T6FreeRTOS",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "id": "stm32f411ceu6",
-              "label": "STM32F411CEU6",
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "risc-v",
-          "label": "RISC-V架构",
-          "children": [
-            {
-              "id": "esp32-s3-esp-idf",
-              "label": "ESP32-S3 ESP-IDF学习",
-              "children": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "node-2e1a2e38",
-      "label": "嵌入式项目文档",
-      "children": [
-        {
-          "id": "node-96e73854",
-          "label": "问题记录",
-          "children": [
-            {
-              "id": "16-adc-dma-m-arch-ope",
-              "label": "16_ADC_DMA_M_Arch_ope",
-              "children": []
-            },
-            {
-              "id": "yaoxiang",
-              "label": "药箱-YaoXiang",
-              "children": []
-            },
-            {
-              "id": "stm32f103-uart",
-              "label": "STM32F103-UART",
-              "children": []
-            },
-            {
-              "id": "stm32f411ceu6-bsp-flash",
-              "label": "STM32F411CEU6-BSP-Flash",
-              "children": []
-            },
-            {
-              "id": "uart-printf-v1",
-              "label": "UART_PRINTF_V1",
-              "children": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "node-0a5f360e",
-      "label": "通信协议",
-      "children": [
-        {
-          "id": "node-5b135aa3",
-          "label": "互联网协议",
-          "children": []
-        },
-        {
-          "id": "node-5a9ba8e5",
-          "label": "局域网和无线协议",
-          "children": []
-        },
-        {
-          "id": "node-f7d1af06",
-          "label": "物联网协议与专用协议",
-          "children": []
-        },
-        {
-          "id": "node-9ce91c03",
-          "label": "有线通信协议",
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "node-39231438",
-      "label": "中间件",
-      "children": [
-        {
-          "id": "cmbacktrace",
-          "label": "CmBacktrace",
-          "children": []
-        },
-        {
-          "id": "fatfs",
-          "label": "FATFS",
-          "children": []
-        },
-        {
-          "id": "flashdb",
-          "label": "FlashDB",
-          "children": []
-        },
-        {
-          "id": "letter-shell",
-          "label": "letter_shell",
-          "children": []
-        },
-        {
-          "id": "lvgl",
-          "label": "LVGL",
-          "children": [
-            {
-              "id": "node-7359f06c",
-              "label": "组件",
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "segger-systemview",
-          "label": "SEGGER SystemView",
-          "children": []
-        },
-        {
-          "id": "sfud",
-          "label": "SFUD",
-          "children": []
-        },
-        {
-          "id": "unity",
-          "label": "Unity",
-          "children": []
-        }
-      ]
-    }
-  ]
+  "embedded": {
+    "id": "embedded",
+    "label": "嵌入式",
+    "children": [
+      {
+        "id": "node-7c30099b",
+        "label": "操作系统",
+        "children": [
+          {
+            "id": "freertos",
+            "label": "FreeRTOS",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "node-1824d8b6",
+        "label": "常用驱动",
+        "children": [
+          {
+            "id": "node-23362670",
+            "label": "传感器",
+            "children": []
+          },
+          {
+            "id": "node-183063f9",
+            "label": "存储类",
+            "children": [
+              {
+                "id": "rom",
+                "label": "ROM",
+                "children": [
+                  {
+                    "id": "eeprom",
+                    "label": "EEPROM",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "node-758b20db",
+            "label": "电机",
+            "children": []
+          },
+          {
+            "id": "node-16a8ec9f",
+            "label": "显示屏",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "node-3177d046",
+        "label": "开发板",
+        "children": [
+          {
+            "id": "arm",
+            "label": "ARM架构",
+            "children": [
+              {
+                "id": "stm32f103c8t6",
+                "label": "STM32F103C8T6",
+                "children": [
+                  {
+                    "id": "stm32f103c8t6freertos",
+                    "label": "STM32F103C8T6FreeRTOS",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "stm32f411ceu6",
+                "label": "STM32F411CEU6",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "risc-v",
+            "label": "RISC-V架构",
+            "children": [
+              {
+                "id": "esp32-s3-esp-idf",
+                "label": "ESP32-S3 ESP-IDF学习",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "node-0a5f360e",
+        "label": "通信协议",
+        "children": [
+          {
+            "id": "node-5b135aa3",
+            "label": "互联网协议",
+            "children": []
+          },
+          {
+            "id": "node-5a9ba8e5",
+            "label": "局域网和无线协议",
+            "children": []
+          },
+          {
+            "id": "node-f7d1af06",
+            "label": "物联网协议与专用协议",
+            "children": []
+          },
+          {
+            "id": "node-9ce91c03",
+            "label": "有线通信协议",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "node-39231438",
+        "label": "中间件",
+        "children": [
+          {
+            "id": "cmbacktrace",
+            "label": "CmBacktrace",
+            "children": []
+          },
+          {
+            "id": "fatfs",
+            "label": "FATFS",
+            "children": []
+          },
+          {
+            "id": "flashdb",
+            "label": "FlashDB",
+            "children": []
+          },
+          {
+            "id": "letter-shell",
+            "label": "letter_shell",
+            "children": []
+          },
+          {
+            "id": "lvgl",
+            "label": "LVGL",
+            "children": [
+              {
+                "id": "node-7359f06c",
+                "label": "组件",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "segger-systemview",
+            "label": "SEGGER SystemView",
+            "children": []
+          },
+          {
+            "id": "sfud",
+            "label": "SFUD",
+            "children": []
+          },
+          {
+            "id": "unity",
+            "label": "Unity",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "software": {
+    "id": "software",
+    "label": "软件工程",
+    "children": [
+      {
+        "id": "node-2e1a2e38",
+        "label": "嵌入式项目文档",
+        "children": [
+          {
+            "id": "node-96e73854",
+            "label": "问题记录",
+            "children": [
+              {
+                "id": "16-adc-dma-m-arch-ope",
+                "label": "16_ADC_DMA_M_Arch_ope",
+                "children": []
+              },
+              {
+                "id": "yaoxiang",
+                "label": "药箱-YaoXiang",
+                "children": []
+              },
+              {
+                "id": "stm32f103-uart",
+                "label": "STM32F103-UART",
+                "children": []
+              },
+              {
+                "id": "stm32f411ceu6-bsp-flash",
+                "label": "STM32F411CEU6-BSP-Flash",
+                "children": []
+              },
+              {
+                "id": "uart-printf-v1",
+                "label": "UART_PRINTF_V1",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tools": {
+    "id": "tools",
+    "label": "工具与方法",
+    "children": [
+      {
+        "id": "node-abc1b455",
+        "label": "笔记系统",
+        "children": []
+      },
+      {
+        "id": "node-16b7dcaf",
+        "label": "必备开发工具",
+        "children": [
+          {
+            "id": "cmake",
+            "label": "cmake",
+            "children": []
+          },
+          {
+            "id": "git",
+            "label": "git",
+            "children": []
+          },
+          {
+            "id": "understand",
+            "label": "understand",
+            "children": []
+          },
+          {
+            "id": "vscode",
+            "label": "vscode",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "thinking": {
+    "id": "thinking",
+    "label": "思考与随笔",
+    "children": []
+  }
 };
 window.POWER_NOTES.push(...window.POWER_IMPORTED_NOTES);
-if (Array.isArray(window.POWER_TAXONOMY)) window.POWER_TAXONOMY.push(window.POWER_IMPORTED_TAXONOMY);
+if (Array.isArray(window.POWER_TAXONOMY)) { Object.values(window.POWER_IMPORTED_TAXONOMY).forEach((importedRoot) => { const root = window.POWER_TAXONOMY.find((item) => item.id === importedRoot.id); if (root) root.children = [...(root.children || []), ...(importedRoot.children || [])]; }); }

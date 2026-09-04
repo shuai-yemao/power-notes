@@ -66,7 +66,7 @@ Mermaid、ECharts 和 KaTeX 只在当前笔记确实包含对应内容时按需�
 
 ## 导入 Deep-In-Embedded 笔记
 
-使用导入器可以把 `Deep-In-Embedded` 的 Markdown 笔记按原仓库层级加入知识库：
+使用导入器可以把 `Deep-In-Embedded` 的 Markdown 笔记按原仓库层级加入现有四大知识库：开发板、操作系统、常用驱动、通信协议和中间件归入“嵌入式”；嵌入式项目文档归入“软件工程”；必备开发工具和笔记系统归入“工具与方法”。“思考与随笔”不强行放入不匹配的技术笔记。
 
 ```powershell
 node scripts/import-deep-in-embedded.mjs --source=..\Deep-In-Embedded-source

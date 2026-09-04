@@ -5,8 +5,23 @@ const categories = [...document.querySelectorAll('.category')];
 const searchable = [...document.querySelectorAll('[data-search]')];
 const resultCount = document.querySelector('#resultCount');
 const emptyState = document.querySelector('#emptyState');
-const categoryTotals = ['all', 'embedded', 'software', 'tools', 'thinking', 'deep-in-embedded'].reduce((totals, category) => { totals[category] = category === 'all' ? window.POWER_NOTES.length : window.POWER_NOTES.filter((note) => note.category === category).length; return totals; }, {});
+const categoryTotals = ['all', 'embedded', 'software', 'tools', 'thinking'].reduce((totals, category) => { totals[category] = category === 'all' ? window.POWER_NOTES.length : window.POWER_NOTES.filter((note) => note.category === category).length; return totals; }, {});
 const markdownSearchIndex = new Map();
+
+function refreshCategoryCounts() {
+  document.querySelectorAll('.category').forEach((button) => {
+    const badge = button.querySelector('b');
+    const count = categoryTotals[button.dataset.filter];
+    if (badge && Number.isFinite(count)) badge.textContent = String(count).padStart(2, '0');
+  });
+  const sidebarCount = document.querySelector('.sidebar .count');
+  if (sidebarCount) sidebarCount.textContent = `${categoryTotals.all} NOTES`;
+  document.querySelectorAll('.feature-card[data-category]').forEach((card) => {
+    const count = categoryTotals[card.dataset.category];
+    const label = card.querySelector('.card-bottom span');
+    if (label && Number.isFinite(count)) label.textContent = `${count} 篇笔记`;
+  });
+}
 
 function loadMarkdownSearchIndex() {
   if (!window.POWER_NOTES) return;
@@ -63,5 +78,6 @@ if (themeToggle) themeToggle.addEventListener('click', () => {
   body.classList.toggle('dark');
   localStorage.setItem('power-notes-theme', body.classList.contains('dark') ? 'dark' : 'light');
 });
+refreshCategoryCounts();
 applyFilters();
 loadMarkdownSearchIndex();

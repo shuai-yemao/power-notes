@@ -12,6 +12,16 @@ const sourceCommit = process.argv.find((value) => value.startsWith('--commit='))
 const repositoryUrl = 'https://github.com/shuai-yemao/Deep-In-Embedded';
 const importedRoot = path.join(projectRoot, 'notes', 'deep-in-embedded');
 const importedIndex = path.join(projectRoot, 'deep-in-embedded.js');
+const categoryMap = {
+  '开发板': { category: 'embedded', label: '嵌入式' },
+  '操作系统': { category: 'embedded', label: '嵌入式' },
+  '常用驱动': { category: 'embedded', label: '嵌入式' },
+  '通信协议': { category: 'embedded', label: '嵌入式' },
+  '中间件': { category: 'embedded', label: '嵌入式' },
+  '嵌入式项目文档': { category: 'software', label: '软件工程' },
+  '必备开发工具': { category: 'tools', label: '工具与方法' },
+  '笔记系统': { category: 'tools', label: '工具与方法' },
+};
 
 function walk(directory) {
   const entries = fs.readdirSync(directory, { withFileTypes: true }).filter((entry) => entry.name !== '.git');
@@ -120,7 +130,7 @@ function extractTitleAndSummary(content, relativePath, frontmatter) {
 }
 function insertTaxonomy(root, folders) {
   let parent = root;
-  const categoryPath = ['deep-in-embedded'];
+  const categoryPath = [root.id];
   folders.forEach((label) => {
     const id = pathId(label);
     let child = (parent.children || []).find((item) => item.id === id);
@@ -163,7 +173,12 @@ const noteFiles = sourceFiles
 fs.rmSync(importedRoot, { recursive: true, force: true });
 fs.mkdirSync(importedRoot, { recursive: true });
 
-const taxonomy = { id: 'deep-in-embedded', label: 'Deep-In-Embedded', children: [] };
+const taxonomy = {
+  embedded: { id: 'embedded', label: '嵌入式', children: [] },
+  software: { id: 'software', label: '软件工程', children: [] },
+  tools: { id: 'tools', label: '工具与方法', children: [] },
+  thinking: { id: 'thinking', label: '思考与随笔', children: [] },
+};
 const notes = [];
 let unresolvedImages = 0;
 noteFiles.forEach((file, index) => {
@@ -176,7 +191,10 @@ noteFiles.forEach((file, index) => {
   const rewritten = rewriteImages(parsed.content, relative, assetByRelative, assetByBasename, fileByRelative, fileByBasename);
   unresolvedImages += rewritten.unresolved;
   const folders = relative.split('/').slice(0, -1);
-  const categoryPath = insertTaxonomy(taxonomy, folders);
+  const sourceTopLevel = relative.split('/')[0];
+  const mapping = categoryMap[sourceTopLevel];
+  if (!mapping) throw new Error('No four-category mapping for source folder: ' + sourceTopLevel);
+  const categoryPath = insertTaxonomy(taxonomy[mapping.category], folders);
   const meta = extractTitleAndSummary(rewritten.content, relative, parsed.frontmatter);
   const minutes = Math.max(1, Math.ceil(rewritten.content.length / 900));
   const slugBase = relative.replace(/\.md$/i, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(-48) || 'note';
@@ -186,8 +204,8 @@ noteFiles.forEach((file, index) => {
   notes.push({
     slug,
     title: meta.title,
-    category: 'deep-in-embedded',
-    categoryLabel: 'Deep-In-Embedded',
+    category: mapping.category,
+    categoryLabel: mapping.label,
     categoryPath,
     number: String(index + 100),
     date: '2026.09.04',
@@ -203,7 +221,7 @@ const indexSource = [
   'window.POWER_IMPORTED_NOTES = ' + JSON.stringify(notes, null, 2) + ';',
   'window.POWER_IMPORTED_TAXONOMY = ' + JSON.stringify(taxonomy, null, 2) + ';',
   'window.POWER_NOTES.push(...window.POWER_IMPORTED_NOTES);',
-  'if (Array.isArray(window.POWER_TAXONOMY)) window.POWER_TAXONOMY.push(window.POWER_IMPORTED_TAXONOMY);',
+  'if (Array.isArray(window.POWER_TAXONOMY)) { Object.values(window.POWER_IMPORTED_TAXONOMY).forEach((importedRoot) => { const root = window.POWER_TAXONOMY.find((item) => item.id === importedRoot.id); if (root) root.children = [...(root.children || []), ...(importedRoot.children || [])]; }); }',
   '',
 ].join('\n');
 fs.writeFileSync(importedIndex, indexSource, 'utf8');
