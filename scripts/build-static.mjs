@@ -12,6 +12,7 @@ const files = [
   'note.html',
   'app.js',
   'home.js',
+  'agent-notes.js',
   'library-home.js',
   'directory.js',
   'note.js',

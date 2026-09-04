@@ -4,6 +4,18 @@
 
 发布前会通过 `scripts/build-static.mjs` 生成 `dist` 静态产物目录。
 
+## 本地 MCP 导入
+
+`mcp-server/` 是 Power Notes 的本地 MCP 目标端。它只接收标准化 `NotePackage`，不读取或管理 Obsidian、uTools 等来源 MCP。
+
+1. 复制 `mcp-server/config/sources.example.json` 为 `mcp-server/config/sources.json`；
+2. 只填写 Power Notes 目标仓库的绝对路径；
+3. 在 `mcp-server` 目录执行 `npm install`；
+4. 在 Agent 的 MCP 配置中用 `node mcp-server/src/server.mjs` 以 stdio 启动；
+5. 由来源 MCP 和 Agent 先生成标准 Markdown 输入，再调用 `preview_note`，确认后传入 `approved: true` 调用 `import_note`。
+
+MCP Server 默认只写入工作区，不自动 commit、push 或创建 Pull Request。导入索引是 `agent-notes.js`，与人工维护的 `notes.js` 分开。
+
 ## 本地预览
 
 ```powershell

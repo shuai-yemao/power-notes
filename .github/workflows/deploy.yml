@@ -48,6 +48,13 @@ jobs:
           test -f dist/sitemap.xml
           test -f dist/robots.txt
 
+      - name: Validate local Power Notes MCP
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci --prefix mcp-server
+          npm run smoke --prefix mcp-server
+
   deploy:
     if: github.event_name != 'pull_request'
     needs: validate

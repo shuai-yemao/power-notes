@@ -1,0 +1,8 @@
+{
+  "targetRepository": "D:\\Projects\\power-notes",
+  "importDirectory": "notes/agent-imports",
+  "generatedIndex": "agent-notes.js",
+  "maxMarkdownBytes": 1048576,
+  "maxAssetBytes": 5242880,
+  "maxAssetsPerNote": 30
+}
