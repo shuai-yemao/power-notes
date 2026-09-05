@@ -102,6 +102,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--green) transparent}.note-library
 .home-hero h1{font-size:clamp(64px,8.1vw,112px)}
 @media(max-width:600px){.home-hero h1{font-size:clamp(57px,16vw,82px)}}
 .home-page:before{display:none}.home-hero{width:min(1500px,calc(100% - 56px));max-width:none;align-items:center;justify-content:center;padding-block:0}.home-hero:before{content:none}.home-hero-card{margin-top:0}
+.home-page main{display:grid;min-height:100vh}.home-page .home-hero{height:100vh;min-height:100vh;align-items:center;justify-content:center}
 .home-hero:after{display:none}
 @media(max-width:850px){.home-hero{width:calc(100% - 56px);padding-top:48px}.home-hero-card{margin-top:0}}
 @media(max-width:600px){.home-hero{width:calc(100% - 36px);padding-top:35px}.home-hero-card{margin-top:0}}
