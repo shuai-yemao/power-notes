@@ -41,6 +41,7 @@ jobs:
           set -euo pipefail
           node scripts/build-static.mjs
           test -f dist/index.html
+          test -f dist/about.html
           test -f dist/library.html
           test -f dist/category.html
           test -f dist/note.html

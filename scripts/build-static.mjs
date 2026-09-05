@@ -6,6 +6,7 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const outputDir = path.join(projectRoot, 'dist');
 const files = [
   'index.html',
+  'about.html',
   'article.html',
   'library.html',
   'category.html',
